@@ -1,11 +1,16 @@
-import mongoose, { ConnectOptions } from "mongoose";
+import mongoose, { ConnectOptions } from 'mongoose';
+import dotenv from 'dotenv';
 
-export const DBonnection = () => {
-    mongoose.connect('', {
-        useUnifiedTopology: true,
+dotenv.config();
+
+export const DBconnection = () => {
+    mongoose.set('strictQuery', true);
+    mongoose.connect(`mongodb://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@localhost:27017/`, {
         useNewUrlParser: true,
-    } as ConnectOptions, (err) => {
-        if(!err) console.log('Connected to MongoDB');
-        else console.log(`Failed to connect to MongoDB : ${err}`);
-    });
+        useUnifiedTopology: true,
+
+    } as ConnectOptions, (err: any) => {
+        if(err) throw new Error(err);
+        else console.log('Connected to Mongo')
+    })
 };
