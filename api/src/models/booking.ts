@@ -4,7 +4,10 @@ import IBooking from "../types/booking";
 
 const bookingSchema = new Schema<IBooking>({
     phoneNumber: String,
-    createdAt: Date,
+    createdAt: {
+        type: Date,
+        default: Date.now
+    },
     post: [
         {
             type: SchemaTypes.ObjectId,

@@ -15,7 +15,10 @@ const postSchema = new Schema<IPost>({
             ref: "comments",
         },
     ],
-    createdAt: Date,
+    createdAt: {
+        type: Date,
+        default: Date.now
+    },
     bookings: [
         {
             type: Schema.Types.ObjectId,

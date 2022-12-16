@@ -6,7 +6,10 @@ const commentSchema = new Schema<IComment>({
     username: String,
     description: String,
     stars: Number,
-    createdAt: Date,
+    createdAt: {
+        type: Date,
+        default: Date.now
+    },
     post: [
         {
             type: SchemaTypes.ObjectId,
