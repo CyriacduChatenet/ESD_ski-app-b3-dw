@@ -1,17 +1,26 @@
+import { Request } from "express";
+
 import Post from "../models/post.model";
 
-export const getAllPostsService = async () => {
-  return await Post.find();
-};
+export class PostService {
+  
+  public async findAll () {
+    return await Post.find();
+  };
 
-export const getPostByIdService = async (id: string) => {
-  return await Post.find({ _id: id });
-};
+  public async FindOneById (req: Request) {
+    return await Post.find({ _id: req.params.id });
+  };
 
-export const createPostService = async (post: Object) => {
-  return await Post.create(post);
-};
+  public async createOne (post: Object) {
+    return await Post.create(post);
+  };
 
-export const updatePostService = async (id: string, post: Object) => {
-  return await Post.findByIdAndUpdate({ _id: id }, { $set: post });
-};
+  public async updateOne (id: string, post: Object) {
+    return await Post.findByIdAndUpdate({ _id: id }, { $set: post });
+  };
+
+  public async deleteOne (req: Request) {
+    return await Post.findByIdAndDelete({_id: req.params.id});
+  };
+}

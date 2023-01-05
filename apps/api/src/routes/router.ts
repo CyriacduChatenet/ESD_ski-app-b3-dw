@@ -1,20 +1,24 @@
-import express, { Request, Response } from 'express';
+import express from 'express';
 
-import { createPost, deletePost, getAllPosts, getSinglePosts, updatePost } from '../controller/posts.controller';
-import { deleteBooking, getAllBooking, updateBooking } from '../controller/booking.controller';
-import { createComment, getAllComments } from '../controller/comment.controller';
+import { BookingController } from '../controller/booking.controller';
+import { CommentController } from '../controller/comment.controller';
+import { PostController } from '../controller/posts.controller';
+
+const bookingController = new BookingController();
+const commentController = new CommentController();
+const postController = new PostController();
 
 export const router = express.Router();
 
-router.get('/posts', getAllPosts);
-router.get('/posts/:id', getSinglePosts);
-router.post('/posts/', createPost);
-router.patch('/posts/:id', updatePost);
-router.delete('/posts/:id', deletePost);
+router.get('/posts', postController.findAll);
+router.get('/posts/:id', postController.findOneById);
+router.post('/posts/', postController.createOne);
+router.patch('/posts/:id', postController.updateOne);
+router.delete('/posts/:id', postController.deleteOne);
 
-router.get('/comments', getAllComments);
-router.post('/comments/', createComment);
+router.get('/comments', commentController.getAllComments);
+router.post('/comments/', commentController.createComment);
 
-router.get('/bookings/', getAllBooking);
-router.patch('/bookings/:id', updateBooking);
-router.delete('/bookings/:id', deleteBooking);
+router.get('/bookings/', bookingController.getAllBooking);
+router.patch('/bookings/:id', bookingController.updateBooking);
+router.delete('/bookings/:id', bookingController.deleteBooking);

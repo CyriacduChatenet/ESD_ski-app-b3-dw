@@ -1,4 +1,3 @@
 node_modules
 apps/api/data
 apps/api/.env
-apps/client/.env
