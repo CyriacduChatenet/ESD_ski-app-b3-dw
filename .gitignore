@@ -1,5 +1,5 @@
-api/node_modules
+
+api/data/*
 api/.env
-api/data
-app/node_modules
+node_modules
 app/.env

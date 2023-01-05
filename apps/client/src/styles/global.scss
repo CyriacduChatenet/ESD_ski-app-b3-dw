@@ -1,0 +1,11 @@
+@import './variables.scss';
+
+* {
+    padding: $padding-null;
+    margin: $margin-null;
+    border: none;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: $font-family-primary;
+}

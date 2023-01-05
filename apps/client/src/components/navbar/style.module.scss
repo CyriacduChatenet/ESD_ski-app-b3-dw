@@ -1,0 +1,15 @@
+@import '@/styles/variables.scss';
+
+.navbar {
+    display: flex;
+    align-items: center;
+    height: 5rem;
+    padding: 0 $padding-desktop;
+    background-color: $color-thirdary;
+};
+
+.logo {
+    color: $color-secondary;
+    font-weight: $font-weight-semi-bold;
+    font-size: $font-size-sm;
+}
