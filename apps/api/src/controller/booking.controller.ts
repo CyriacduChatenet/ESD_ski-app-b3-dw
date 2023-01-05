@@ -1,22 +1,18 @@
 import { Request, Response } from "express";
 
-import Booking from "../models/booking.model";
+import { deleteBookingService, getAllBookingService, updateBookingService } from "../services/booking.service";
 
 export const getAllBooking = async (req: Request, res: Response) => {
-    const bookings = await Booking.find();
-    res.status(200).json(bookings);
+    const bookings = await getAllBookingService();
+    return res.status(200).json(bookings);
 };
+
 export const updateBooking = async (req: Request, res: Response) => {
-    await Booking.findByIdAndUpdate({_id: req.params.id}, {
-        $set: {
-            phoneNumber: req.body.phoneNumber,
-            createdAt: req.body.createdAt,
-            post: req.body.post,
-        }
-    })
-    res.status(202).send('update booking');
+    await updateBookingService(req);
+    return res.status(202).send('update booking');
 };
+
 export const deleteBooking = async (req: Request, res: Response) => {
-    await Booking.findByIdAndDelete({_id: req.params.id});
-    res.status(204).send('delete booking');
+    await deleteBookingService(req);
+    return res.status(204).send('delete booking');
 };

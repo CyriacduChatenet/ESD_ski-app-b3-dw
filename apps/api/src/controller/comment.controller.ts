@@ -1,18 +1,13 @@
 import { Request, Response } from "express";
 
-import Comment from "../models/comment.model";
+import { createCommentService, getAllCommentsService } from "../services/comment.service";
 
 export const getAllComments = async (req: Request, res: Response) => {
-    const comments = await Comment.find();
-    res.status(200).json(comments);
+    const comments = await getAllCommentsService();
+    return res.status(200).json(comments);
 };
+
 export const createComment = async (req: Request, res: Response) => {
-    const comments = await Comment.create({
-        username: req.body.username,
-        description: req.body.description,
-        stars: req.body.stars,
-        createdAt: req.body.createdAt,
-        post: req.body.post
-    })
-    res.status(201).send('create comment');
+    await createCommentService(req);
+    return res.status(201).send('create comment');
 };
