@@ -1,5 +1,4 @@
-
-api/data/*
-api/.env
 node_modules
-app/.env
+apps/api/data
+apps/api/.env
+apps/client/.env
