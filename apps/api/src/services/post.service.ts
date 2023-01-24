@@ -5,11 +5,11 @@ import Post from "../models/post.model";
 export class PostService {
   
   public async findAll () {
-    return await Post.find();
+    return await Post.find().populate('comments');
   };
 
   public async FindOneById (req: Request) {
-    return await Post.find({ _id: req.params.id });
+    return await Post.find({ _id: req.params.id }).populate(['comments', 'bookings']);
   };
 
   public async createOne (post: Object) {

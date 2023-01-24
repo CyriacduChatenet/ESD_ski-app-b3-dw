@@ -19,7 +19,6 @@ export class PostController {
     };
 
     public async createOne (req: Request, res: Response) {
-
         const newPost = await postService.createOne(PostDTO(req));
         res.status(201).json(newPost);
     };

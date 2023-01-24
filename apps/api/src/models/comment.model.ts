@@ -13,11 +13,11 @@ const commentSchema = new Schema<IComment>({
     post: [
         {
             type: SchemaTypes.ObjectId,
-            ref: 'posts',
+            ref: 'Post',
         },
     ],
 });
 
-const Comment = model<IComment>('comments', commentSchema);
+const Comment = model<IComment>('Comment', commentSchema);
 
 export default Comment;

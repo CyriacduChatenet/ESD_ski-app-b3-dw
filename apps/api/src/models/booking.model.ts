@@ -8,14 +8,8 @@ const bookingSchema = new Schema<IBooking>({
         type: Date,
         default: Date.now
     },
-    post: [
-        {
-            type: SchemaTypes.ObjectId,
-            ref: "posts",
-        },
-    ],
 });
 
-const Booking = model<IBooking>('bookings', bookingSchema);
+const Booking = model<IBooking>('Booking', bookingSchema);
 
 export default Booking;
