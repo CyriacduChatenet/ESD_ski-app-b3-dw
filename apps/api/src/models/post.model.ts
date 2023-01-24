@@ -26,7 +26,7 @@ const postSchema = new Schema<IPost>({
       type: SchemaTypes.ObjectId,
       ref: "Comment",
     },
-  ],
+  ]
 });
 
 const Post = model("Post", postSchema);

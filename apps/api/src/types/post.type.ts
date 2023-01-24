@@ -1,5 +1,6 @@
 import IBooking from "./booking.type";
 import IComment from "./comment.type";
+import { IShop } from "./shop.type";
 
 export default interface IPost {
     _id?: string;
@@ -10,8 +11,9 @@ export default interface IPost {
     style: string;
     price: number;
     description: string;
-    comments: IComment[];
-    createdAt: Date;
-    bookings: IBooking[];
     isAvailable: boolean;
+    createdAt: Date;
+    comments: IComment[];
+    bookings: IBooking[];
+    shop: IShop;
 };

@@ -1,4 +1,4 @@
-import { model, Schema, SchemaTypes } from "mongoose";
+import { model, Schema } from "mongoose";
 
 import IBooking from "../types/booking.type";
 
