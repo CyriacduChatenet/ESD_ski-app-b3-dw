@@ -1,13 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import React from "react";
+import ReactDOM from "react-dom/client";
 
-import Router from '@/router/router';
+import Router from "@/router/router";
 
-import '@/styles/global.scss'
+import "@/styles/index.css";
+import { InputContextProvider } from "./contexts/inputs.context";
 
-
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <Router/>
+    <InputContextProvider>
+      <Router />
+    </InputContextProvider>
   </React.StrictMode>
-)
+);
