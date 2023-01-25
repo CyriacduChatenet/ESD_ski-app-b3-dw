@@ -46,6 +46,7 @@ const HomePage: FC = () => {
                       description={post.description}
                       addresse={shop.addresse}
                       image_url={post.image_url}
+                      isAvailable={post.isAvailable}
                     />
                   </Link>
                 ))}
@@ -76,6 +77,7 @@ const HomePage: FC = () => {
                           description={post.description}
                           addresse={shop.addresse}
                           image_url={post.image_url}
+                          isAvailable={post.isAvailable}
                         />
                       </Link>
                     ))}
