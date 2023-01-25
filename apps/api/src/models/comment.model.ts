@@ -5,7 +5,10 @@ import IComment from "../types/comment.type";
 const commentSchema = new Schema<IComment>({
     username: String,
     description: String,
-    stars: Number,
+    stars: {
+        type: Number,
+        default: 0
+    },
     createdAt: {
         type: Date,
         default: Date.now

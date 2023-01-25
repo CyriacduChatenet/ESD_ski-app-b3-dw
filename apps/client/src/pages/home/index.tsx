@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 const HomePage: FC = () => {
   const [data, setData] = useState([]);
 
-  const { addresse, size, weight, style } = UseInputs();
+  const { addresse, setAddresse, size, weight, style } = UseInputs();
 
   const handleFetchData = () => {
     fetch("http://localhost:3000/api/shops")
@@ -30,13 +30,13 @@ const HomePage: FC = () => {
   return (
     <>
       <UtilityBar />
-      <div className="pt-28 px-28">
+      <div className="pt-28 px-28 h-screen bg-lightGray">
         {addresse === "" || size === 0 || weight === 0 || style === "" ? (
           <>
             {data.map((shop: any) => (
               <div key={shop._id}>
                 {shop.posts.map((post: any) => (
-                  <Link to={`/product/${post._id}`} key={post._id}>
+                  <Link to={`/product/${post._id}`} key={post._id} onClick={() => setAddresse(shop.addresse)}>
                     <Card
                       title={post.title}
                       size={post.size}
