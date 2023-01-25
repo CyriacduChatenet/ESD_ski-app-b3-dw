@@ -12,7 +12,7 @@ export class CommentController {
     };
 
     public async createComment (req: Request, res: Response) {
-        await commentService.createOne(req);
-        return res.status(201).send('create comment');
+        const comment = await commentService.createOne(req);
+        return res.status(201).json(comment);
     };
 };

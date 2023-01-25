@@ -22,11 +22,12 @@ router.get('/comments', commentController.getAllComments);
 router.post('/comments/', commentController.createComment);
 
 router.get('/bookings/', bookingController.getAllBooking);
-router.patch('/bookings/:id', bookingController.updateBooking);
+router.post('/bookings/', bookingController.createBooking);
+router.put('/bookings/:id', bookingController.updateBooking);
 router.delete('/bookings/:id', bookingController.deleteBooking);
 
 router.get('/shops', shopController.findAllShops);
 router.get('/shops/:id', shopController. findOneShopById);
 router.post('/shops', shopController.createShop);
-router.patch('/shops/:id', shopController.updateShop);
+router.put('/shops/:id', shopController.updateShop);
 router.delete('/shops/:id', shopController.deleteShop);

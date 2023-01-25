@@ -11,6 +11,11 @@ export class BookingController {
         return res.status(200).json(bookings);
     };
 
+    public async createBooking (req: Request, res: Response) {
+        const bookings = await bookingService.createOne(req);
+        return res.status(201).json(bookings);
+    };
+
     public async updateBooking (req: Request, res: Response) {
         await bookingService.updateOne(req);
         return res.status(202).send('update booking');

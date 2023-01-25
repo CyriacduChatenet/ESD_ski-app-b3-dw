@@ -15,12 +15,6 @@ const HomePage: FC = () => {
       .then((response) => response.json())
       .then((response) => {
         setData(response);
-        console.log(response);
-        response.map((shop: any) => {
-          shop.posts.map((product: any) => {
-            console.log(product);
-          });
-        });
       });
   };
 
