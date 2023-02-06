@@ -1,0 +1,27 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "src/app.module.ts",
+        "use": "@vercel/node",
+        "config": {
+          "env": {
+            "NODE_ENV": "production"
+          }
+        }
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "headers": {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "GET,HEAD,PUT,PATCH,POST,DELETE, OPTIONS",
+          "Access-Control-Allow-Headers": "Authorization, Content-Type"
+        },
+        "dest": "src/app.module.ts",
+        "methods": ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"]
+      }
+    ]
+  }
+  

@@ -1,3 +1,5 @@
-node_modules
-apps/api/data
-apps/api/.env
+api/data
+api/.env
+client/.env
+api/node_modules
+client/node_modules

@@ -6,3 +6,18 @@
 [![nodejs](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)]()
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/docs/)
 [![Tailwind.CSS](https://img.shields.io/badge/TailwindCSS-16a1ba?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://www.typescriptlang.org/docs/)
+
+## Deployed envs
+- [API]()
+- [CLIENT]()
+
+## env variables 
+```bash
+PORT = 8000
+MONGODB_PORT = 27017
+MONGODB_URL = mongodb://mongoroot:mongoroot@localhost:27017/
+DB_USERNAME = mongoroot
+DB_PASSWORD = mongoroot
+DB_URI = localhost
+DB_NAME = api
+```
