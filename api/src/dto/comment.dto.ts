@@ -5,7 +5,6 @@ export const CommentDTO = (req: Request) => {
         username: req.body.username,
         description: req.body.description,
         stars: req.body.stars,
-        createdAt: req.body.createdAt,
         post: req.body.post
     }
 };

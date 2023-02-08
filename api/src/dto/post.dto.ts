@@ -3,7 +3,7 @@ import { Request } from "express"
 export const PostDTO = (req: Request) => {
     return {
         title: req.body.title,
-        image_url: req.body.image_url,
+        imageUrl: req.body.imageUrl,
         weight: req.body.weight,
         size: req.body.size,
         style: req.body.style,

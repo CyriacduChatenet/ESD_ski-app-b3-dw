@@ -9,7 +9,19 @@ export class CommentService {
         return await Comment.find();
     };
 
+    public async findOne (_id: string) {
+        return await Comment.findOne({_id});
+    };
+
     public async createOne (req: Request) {
         return await Comment.create(CommentDTO(req))
     }
+
+    public async updateOne (req: Request, _id: string) {
+        return await Comment.findByIdAndUpdate(_id, CommentDTO(req))
+    }
+
+    public async deleteOne (_id: string) {
+        return await Comment.deleteOne({_id});
+    };
 }

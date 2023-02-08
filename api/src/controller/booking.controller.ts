@@ -11,6 +11,11 @@ export class BookingController {
         return res.status(200).json(bookings);
     };
 
+    public async getOneBooking (req: Request, res: Response) {
+        const booking = await bookingService.findOne(req.params.id);
+        return res.status(200).json(booking);
+    };
+
     public async createBooking (req: Request, res: Response) {
         const bookings = await bookingService.createOne(req);
         return res.status(201).json(bookings);

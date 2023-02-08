@@ -19,9 +19,13 @@ router.put('/posts/:id', postController.updateOne);
 router.delete('/posts/:id', postController.deleteOne);
 
 router.get('/comments', commentController.getAllComments);
-router.post('/comments/', commentController.createComment);
+router.get('/comments/:id', commentController.getOneCommentById);
+router.post('/comments', commentController.createComment);
+router.put('/comments/:id', commentController.updateOne);
+router.delete('/comments/:id', commentController.deleteOne);
 
 router.get('/bookings/', bookingController.getAllBooking);
+router.get('/bookings/:id', bookingController.getOneBooking);
 router.post('/bookings/', bookingController.createBooking);
 router.put('/bookings/:id', bookingController.updateBooking);
 router.delete('/bookings/:id', bookingController.deleteBooking);

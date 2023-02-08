@@ -8,6 +8,10 @@ export class BookingService {
         return await Booking.find();
     };
 
+    public async findOne(_id: string) {
+        return await Booking.findOne({_id});
+    };
+
     public async createOne (req: Request) {
         return await Booking.create(req.body);
     }
