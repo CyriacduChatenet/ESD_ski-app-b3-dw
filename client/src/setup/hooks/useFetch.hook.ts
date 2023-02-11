@@ -2,10 +2,11 @@ export class useFetch {
     get = async (url: string) => {
         const response = await fetch(url);
         const responseJSON = response.json();
+        console.log(responseJSON)
         return responseJSON;
     };
 
-    post = async (url: string, credentials: Object) => {
+    post = async (url: string, credentials: any) => {
         const response = await fetch(url, {
             headers: {
                 'Accept': 'application/json',
@@ -17,12 +18,12 @@ export class useFetch {
         return responseJSON;
     };
 
-    put = async (url: string, credentials: Object) => {
+    patch = async (url: string, credentials: Object) => {
         const response = await fetch(url, {
             headers: {
                 'Accept': 'application/json',
             },
-            method: 'PUT',
+            method: 'PATCH',
             body: JSON.stringify(credentials)
         });
         const responseJSON = await response.json();

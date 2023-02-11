@@ -7,8 +7,8 @@ export class PostService {
         return this.useFetch.get(url);
     };
 
-    findOne(url: string, id: string) {
-        return this.useFetch.get(`${url}/${id}`);
+    findOne(url: string) {
+        return this.useFetch.get(`${url}`);
     };
 
     create(url: string, credentials: Object) {
@@ -16,7 +16,7 @@ export class PostService {
     };
 
     updateOne(url: string, credentials: Object) {
-        return this.useFetch.put(url, credentials);
+        return this.useFetch.patch(url, credentials);
     };
 
     deleteOne(url: string, id: string) {

@@ -15,7 +15,7 @@ export const PostPage: FC = () => {
 
 	useEffect(() => {
 		const fetch = async () => {
-			const response = await postService.findOne(`${import.meta.env.VITE_APP_API_URL}/posts`, String(params.id));
+			const response = await postService.findOne(`${import.meta.env.VITE_APP_API_URL}/posts/${params.id}`);
 			setData(response);
 		};
 		fetch();
@@ -37,7 +37,7 @@ export const PostPage: FC = () => {
 						</h1>
                         <p>route du soulan</p>
                         <p className='py-4'>{post.description}</p>
-						<BookingForm/>
+						<BookingForm post_id={String(params.id)} />
 					</div>
 				</section>
 			))}

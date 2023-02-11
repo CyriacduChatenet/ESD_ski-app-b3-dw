@@ -17,7 +17,7 @@ export class CommentService implements Comment {
     };
 
     updateOne(url: string, credentials: Object) {
-        return this.useFetch.put(url, credentials);
+        return this.useFetch.patch(url, credentials);
     };
 
     deleteOne(url: string, id: string) {
