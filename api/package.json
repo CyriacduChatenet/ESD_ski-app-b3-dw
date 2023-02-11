@@ -5,7 +5,8 @@
   "main": "app.module.ts",
   "scripts": {
     "start": "node dist/app.module.js",
-    "dev": "nodemon src/app.module.ts"
+    "dev": "nodemon src/app.module.ts",
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +21,7 @@
     "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.15",
     "@types/mongoose": "^5.11.97",
+    "@types/node": "^18.13.0",
     "dotenv": "^16.0.3",
     "nodemon": "^2.0.20",
     "ts-node": "^10.9.1",

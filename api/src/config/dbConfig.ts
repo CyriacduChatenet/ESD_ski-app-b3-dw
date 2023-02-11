@@ -5,7 +5,7 @@ dotenv.config();
 
 export const DBconnection = () => {
     mongoose.set('strictQuery', true);
-    mongoose.connect(`mongodb://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@localhost:27017/`, {
+    mongoose.connect(`${process.env.MONGODB_URL}`, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
 
