@@ -21,6 +21,7 @@ export const BookingForm: FC<IProps> = ({ post_id }) => {
 
     const handleSubmit = (e: any) => {
         e?.preventDefault();
+        bookingService.createAndUpdate(`${import.meta.env.VITE_APP_API_URL}/bookings`, `${import.meta.env.VITE_APP_API_URL}/posts/${post_id}`, credentials);
     };
 
     return (

@@ -22,6 +22,13 @@ export class BookingService implements Booking {
 		return await this.useFetch.patch(url, credentials);
 	}
 
+	async createAndUpdate(booking_url: string, post_url: string, credentials: Object) {
+		const booking = await this.create(booking_url, credentials);
+		console.log('booking',booking);
+		const post = await this.postService.updateOne(post_url, { bookings: [`${booking._id}`]});
+		console.log('post', post);
+	};
+
 	async deleteOne(url: string, id: string) {
 		return await this.useFetch.delete(`${url}/${id}`);
 	}

@@ -5,11 +5,11 @@ import Booking from "../models/booking.model";
 export class BookingService {
     
     public async findAll()  {
-        return await Booking.find();
+        return await Booking.find().populate(['post']);
     };
 
     public async findOne(_id: string) {
-        return await Booking.findOne({_id});
+        return await Booking.findOne({_id}).populate(['post']);
     };
 
     public async createOne (req: Request) {

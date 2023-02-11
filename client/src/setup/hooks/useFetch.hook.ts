@@ -10,6 +10,7 @@ export class useFetch {
         const response = await fetch(url, {
             headers: {
                 'Accept': 'application/json',
+                'Content-type': 'application/json; charset=UTF-8',
             },
             method: 'POST',
             body: JSON.stringify(credentials)
@@ -22,6 +23,7 @@ export class useFetch {
         const response = await fetch(url, {
             headers: {
                 'Accept': 'application/json',
+                'Content-type': 'application/json; charset=UTF-8',
             },
             method: 'PATCH',
             body: JSON.stringify(credentials)
@@ -34,6 +36,7 @@ export class useFetch {
         const response = await fetch(url, {
             headers: {
                 'Accept': 'application/json',
+                'Content-type': 'application/json; charset=UTF-8',
             },
             method: 'DELETE',
         });
