@@ -1,8 +1,6 @@
-import { Post } from "@/setup/types/post.type";
 import { useFetch as useFetchHook } from "@/setup/hooks/useFetch.hook";
-import { Dispatch, SetStateAction } from "react";
 
-export class PostService implements Post {
+export class PostService {
     useFetch = new useFetchHook();
 
     findAll(url: string) {
