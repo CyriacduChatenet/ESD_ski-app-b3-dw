@@ -8,7 +8,8 @@ interface IProps {
 
 export const BookingForm: FC<IProps> = ({ post_id }) => {
     const [credentials, setCrdentials] = useState({
-        post:[`${post_id}`]
+        post:[`${post_id}`],
+        available: false,
     });
 
     const bookingService = new BookingService();

@@ -2,7 +2,6 @@ export class useFetch {
     get = async (url: string) => {
         const response = await fetch(url);
         const responseJSON = response.json();
-        console.log(responseJSON)
         return responseJSON;
     };
 
