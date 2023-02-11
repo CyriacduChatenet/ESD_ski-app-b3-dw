@@ -4,16 +4,9 @@
   "description": "",
   "main": "app.module.ts",
   "scripts": {
-    "dev": "nodemon src/app.module.ts",
-    "build": "rimraf dist && tsc",
-    "ts.check": "tsc --project tsconfig.json",
-    "add-build": "git add dist"
+    "start": "node dist/app.module.js",
+    "dev": "nodemon src/app.module.ts"
   },
-  "pre-commit": [
-    "ts.check",
-    "build",
-    "add-build"
-],
   "keywords": [],
   "author": "",
   "license": "ISC",
