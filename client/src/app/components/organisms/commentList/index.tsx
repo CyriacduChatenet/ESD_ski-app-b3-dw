@@ -1,7 +1,7 @@
 import { FC } from "react";
 
 import { Comment } from "@/setup/types/comment.type";
-import { CommentCard } from "@/app/components/posts/commentCard";
+import { CommentCard } from "@/app/components/molecules/commentCard";
 
 interface IProps {
     comments: Comment[];

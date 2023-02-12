@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 
 import { CommentService } from "@/setup/services/comment.service";
-import { CommentStars } from "../commentStars";
+import { CommentStars } from "../../molecules/commentStars";
 import usePost from "@/setup/contexts/post.context";
 import { Button } from "@/app/components/atoms/button";
 import { FormInput } from "../../atoms/input";

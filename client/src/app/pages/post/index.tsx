@@ -4,9 +4,9 @@ import { useParams, Link } from 'react-router-dom';
 import { PostService } from '@/setup/services/post.service';
 import { Button } from '@/app/components/atoms/button';
 import { Post } from '@/setup/types/post.type';
-import { BookingForm } from '@/app/components/posts/bookingForm';
-import { CommentForm } from '@/app/components/posts/commentForm';
-import { CommentList } from '@/app/components/posts/commentList';
+import { BookingForm } from '@/app/components/organisms/bookingForm';
+import { CommentForm } from '@/app/components/organisms/commentForm';
+import { CommentList } from '@/app/components/organisms/commentList';
 import usePost from '@/setup/contexts/post.context';
 import { Comment } from '@/setup/types/comment.type';
 
@@ -39,7 +39,7 @@ export const PostPage: FC = () => {
 				<section key={index} className="grid grid-cols-12 gap-4 w-full px-40 pt-4">
 					<div className="col-span-4 flex flex-col">
 						<Link to={'/'}>
-							<Button label="Return" />
+							<Button label="Return" background_color={'bg-indigo-700'} py={'py-1'} px={'px-4'} />
 						</Link>
 						<CommentForm post_id={String(params.id)} />
 						<CommentList comments={post.comments} />
