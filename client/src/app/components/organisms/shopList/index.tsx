@@ -1,6 +1,6 @@
 import { FC, useEffect } from 'react';
 
-import { ShopAccordion } from '@/app/components/shops/shopAccordion';
+import { ShopAccordion } from '@/app/components/molecules/shopAccordion';
 import { ShopService } from '@/setup/services/shop.service';
 import { Shop } from '@/setup/types/shop.type';
 import useShop from '@/setup/contexts/shop.context';
