@@ -19,7 +19,7 @@ export const PostList: FC = () => {
 	}, []);
 	return (
 		<>
-			{data.map((post: Post, index: number) => (
+			{data.filter((post: Post) => post.isAvailable !== false).map((post: Post, index: number) => (
 				<Link to={`/post/${post._id}`} key={index}>
 					<PostCard
 						address="route du soulan"

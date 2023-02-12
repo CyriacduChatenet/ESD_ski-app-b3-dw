@@ -1,4 +1,5 @@
 import { FC, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { BookingService } from "@/setup/services/booking.service";
 
@@ -12,6 +13,8 @@ export const BookingForm: FC<IProps> = ({ post_id }) => {
         available: false,
     });
 
+    const navigate = useNavigate();
+
     const bookingService = new BookingService();
 
     const handleChange = (e: any) => {
@@ -23,6 +26,7 @@ export const BookingForm: FC<IProps> = ({ post_id }) => {
     const handleSubmit = (e: any) => {
         e?.preventDefault();
         bookingService.createAndUpdate(`${import.meta.env.VITE_APP_API_URL}/bookings`, `${import.meta.env.VITE_APP_API_URL}/posts/${post_id}`, credentials);
+        navigate('/');
     };
 
     return (

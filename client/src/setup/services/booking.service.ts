@@ -24,7 +24,7 @@ export class BookingService implements Booking {
 
 	async createAndUpdate(booking_url: string, post_url: string, credentials: Object) {
 		const booking = await this.create(booking_url, credentials);
-		const post = await this.postService.updateOne(post_url, { bookings: [`${booking._id}`]});
+		const post = await this.postService.updateOne(post_url, { bookings: [`${booking._id}`], isAvailable: false});
 	};
 
 	async deleteOne(url: string, id: string) {

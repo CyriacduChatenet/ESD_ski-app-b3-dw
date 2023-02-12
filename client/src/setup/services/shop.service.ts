@@ -1,7 +1,6 @@
 import { useFetch as useFetchHook } from "@/setup/hooks/useFetch.hook";
-import { Shop } from "@/setup/types/shop.type";
 
-export class ShopService implements Shop {
+export class ShopService {
     useFetch = new useFetchHook();
 
     findAll(url: string) {
