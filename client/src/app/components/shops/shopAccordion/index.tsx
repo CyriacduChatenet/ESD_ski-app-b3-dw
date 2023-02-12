@@ -5,6 +5,7 @@ import { DashboardPostList } from '@/app/components/shops/shopList/postList';
 import { ShopService } from '@/setup/services/shop.service';
 import { Shop } from '@/setup/types/shop.type';
 import useShop from '@/setup/contexts/shop.context';
+import { Button } from '../../button';
 
 interface IProps {
     id: string;
@@ -25,9 +26,11 @@ export const ShopAccordion: FC<IProps> = ({ name, addresse, posts, id }) => {
 		<details className="bg-indigo-100 my-4 px-5 py-4 rounded-lg">
 			<summary className="bg-indigo-100">
 				<b>{name}</b> - {addresse}
-				<button className="bg-green-500 text-white px-4 py-1 text-sm rounded-lg font-bold" style={{marginLeft: '60rem'}}>Create</button>
-				<button className="bg-blue-500 text-white px-4 py-1 text-sm rounded-lg font-bold ml-8">Edit</button>
-				<button className="bg-red-500 text-white px-4 py-1 text-sm rounded-lg font-bold ml-8" onClick={() => handleDelete()}>Delete</button>
+				<div style={{marginLeft: '60rem'}}>
+				<Button label='Create' background_color='bg-green-500' px='px-4' py='py-1' />
+				<Button label='Edit' background_color='bg-blue-500' px='px-4' py='py-1' ml='ml-8' />
+				<Button label='Delete' background_color='bg-red-500' px='px-4' py='py-1' ml='ml-8' onClick={() => handleDelete()} />
+				</div>
 			</summary>
 			<DashboardPostList posts={posts} />
 		</details>

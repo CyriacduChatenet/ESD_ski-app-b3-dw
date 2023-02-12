@@ -3,6 +3,7 @@ import { FC } from 'react';
 import { Post } from '@/setup/types/post.type';
 import useShop from '@/setup/contexts/shop.context';
 import { PostService } from '@/setup/services/post.service';
+import { Button } from '@/app/components/button';
 
 interface IProps {
 	posts: Post[];
@@ -57,10 +58,10 @@ export const DashboardPostList: FC<IProps> = ({ posts }) => {
 						<td className="border border-solid border-gray-400 px-4 bg-white">{post.bookings.length}</td>
 						<td className="border border-solid border-gray-400 px-4 bg-white">{post.comments.length}</td>
 						<td className="border border-solid border-gray-400 px-4 bg-white">
-							<button className="bg-blue-500 text-white px-4 py-0.5 my-2 text-sm rounded-lg font-bold">Edit</button>
+							<Button label='Edit' background_color='bg-blue-500' px='px-4' py='py-0.5'/>
 						</td>
 						<td className="border border-solid border-gray-400 px-4 bg-white">
-							<button className="bg-red-500 text-white px-4 py-0.5 my-2 text-sm rounded-lg font-bold" onClick={() => handleDelete(post._id)}>Delete</button>
+							<Button label='Delete' background_color='bg-red-500' px='px-4' py='py-0.5' my='my-2' onClick={() => handleDelete(post._id)}/>
 						</td>
 					</tr>
 				))}

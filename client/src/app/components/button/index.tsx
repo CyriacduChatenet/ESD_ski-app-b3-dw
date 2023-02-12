@@ -1,11 +1,17 @@
-import { FC } from "react";
+import { FC, MouseEventHandler } from "react";
 
 interface IProps {
     label: string;
+    background_color: string;
+    py:string;
+    px:string;
+    ml?: string;
+    my?:string
+    onClick?: () => void;
 }
 
-export const Button: FC<IProps> = ({ label }) => {
+export const Button: FC<IProps> = ({ label, background_color, px, py, ml, my, onClick }) => {
     return (
-        <button className="px-8 py-2 rounded-lg bg-indigo-700 text-white font-bold">{label}</button>
+        <button className={`${px} ${py} rounded-lg ${background_color} ${ml} ${my} text-white font-bold`} onClick={onClick}>{label}</button>
     );
 };
