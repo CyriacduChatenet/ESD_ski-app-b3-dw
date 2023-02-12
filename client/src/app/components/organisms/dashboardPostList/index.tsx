@@ -42,8 +42,8 @@ export const DashboardPostList: FC<IProps> = ({ posts }) => {
 		<Table
 			tableHead={
 				<>
-					{TABLE_ENTRIES.map((entry: string) => (
-						<TableEntry label={entry} />
+					{TABLE_ENTRIES.map((entry: string, index:number) => (
+						<TableEntry key={index} label={entry} />
 					))}
 				</>
 			}

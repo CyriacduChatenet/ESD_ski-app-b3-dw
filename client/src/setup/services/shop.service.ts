@@ -7,8 +7,8 @@ export class ShopService {
         return this.useFetch.get(url);
     };
 
-    findOne(url: string, id: string) {
-        return this.useFetch.get(`${url}/${id}`);
+    findOne(url: string) {
+        return this.useFetch.get(`${url}`);
     };
 
     create(url: string, credentials: Object) {
