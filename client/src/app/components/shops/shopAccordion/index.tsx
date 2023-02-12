@@ -1,11 +1,11 @@
 import { Dispatch, FC, SetStateAction } from 'react';
 
 import { Post } from '@/setup/types/post.type';
-import { DashboardPostList } from '@/app/components/shops/shopList/postList';
+import { DashboardPostList } from '@/app/components/organisms/dashboardPostList';
 import { ShopService } from '@/setup/services/shop.service';
 import { Shop } from '@/setup/types/shop.type';
 import useShop from '@/setup/contexts/shop.context';
-import { Button } from '../../atoms/button';
+import { Button } from '@/app/components/atoms/button';
 
 interface IProps {
     id: string;

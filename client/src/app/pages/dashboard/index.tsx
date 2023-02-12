@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { ShopList } from '@/app/components/shops/shopList';
+import { ShopList } from '@/app/components/organisms/shopList';
 import { Button } from '@/app/components/atoms/button';
 
 export const DashboardPage: FC = () => {
