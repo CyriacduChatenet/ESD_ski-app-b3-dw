@@ -6,12 +6,15 @@ import { Router } from '@/setup/router';
 import '@/app/styles/index.css';
 import { PostContextProvider } from '@/setup/contexts/post.context';
 import { FilterContextProvider } from './setup/contexts/filter.context';
+import { ShopContextProvider } from './setup/contexts/shop.context';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
 	<React.StrictMode>
 		<FilterContextProvider>
 			<PostContextProvider>
-				<Router />
+				<ShopContextProvider>
+					<Router />
+				</ShopContextProvider>
 			</PostContextProvider>
 		</FilterContextProvider>
 	</React.StrictMode>
