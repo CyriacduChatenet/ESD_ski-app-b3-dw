@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Button } from '../button';
+import { Button } from '../../atoms/button';
 
 export const Navbar: FC = () => {
     const location = useLocation(); 

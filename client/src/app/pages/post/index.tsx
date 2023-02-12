@@ -2,7 +2,7 @@ import { FC, useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 
 import { PostService } from '@/setup/services/post.service';
-import { Button } from '@/app/components/button';
+import { Button } from '@/app/components/atoms/button';
 import { Post } from '@/setup/types/post.type';
 import { BookingForm } from '@/app/components/posts/bookingForm';
 import { CommentForm } from '@/app/components/posts/commentForm';

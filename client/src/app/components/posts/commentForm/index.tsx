@@ -3,8 +3,8 @@ import { FC, useState } from "react";
 import { CommentService } from "@/setup/services/comment.service";
 import { CommentStars } from "../commentStars";
 import usePost from "@/setup/contexts/post.context";
-import { Button } from "@/app/components/button";
-import { FormInput } from "../../input";
+import { Button } from "@/app/components/atoms/button";
+import { FormInput } from "../../atoms/input";
 
 interface IProps {
     post_id: string;

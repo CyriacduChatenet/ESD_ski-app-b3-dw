@@ -2,7 +2,7 @@ import { ChangeEvent, FC } from "react";
 
 import useFilter from "@/setup/contexts/filter.context";
 import { Option } from "@/setup/types/option.type";
-import { DropdownSelect } from "../../dropdown/select";
+import { DropdownSelect } from "../../molecules/select";
 
 export const UtilityForm: FC = () => {
     const { credentials, setCredentials } = useFilter();

@@ -5,7 +5,7 @@ import { DashboardPostList } from '@/app/components/shops/shopList/postList';
 import { ShopService } from '@/setup/services/shop.service';
 import { Shop } from '@/setup/types/shop.type';
 import useShop from '@/setup/contexts/shop.context';
-import { Button } from '../../button';
+import { Button } from '../../atoms/button';
 
 interface IProps {
     id: string;

@@ -3,7 +3,7 @@ import { FC } from 'react';
 import { Post } from '@/setup/types/post.type';
 import useShop from '@/setup/contexts/shop.context';
 import { PostService } from '@/setup/services/post.service';
-import { Button } from '@/app/components/button';
+import { Button } from '@/app/components/atoms/button';
 import { TableEntry } from '@/app/components/table/tableEntry';
 import { TableCelular } from '@/app/components/table/tableCelular';
 

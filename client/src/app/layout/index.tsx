@@ -1,6 +1,6 @@
 import { FC, PropsWithChildren } from 'react';
 
-import { Navbar } from '@/app/components/navbar';
+import { Navbar } from '@/app/components/organisms/navbar';
 
 interface IProps {
     children: JSX.Element;

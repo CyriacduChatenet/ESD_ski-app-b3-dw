@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
 import { ShopList } from '@/app/components/shops/shopList';
-import { Button } from '@/app/components/button';
+import { Button } from '@/app/components/atoms/button';
 
 export const DashboardPage: FC = () => {
 	return (

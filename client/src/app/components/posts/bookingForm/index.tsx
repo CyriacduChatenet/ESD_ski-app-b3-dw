@@ -2,8 +2,8 @@ import { ChangeEvent, FC, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { BookingService } from "@/setup/services/booking.service";
-import { Button } from "@/app/components/button";
-import { FormInput } from "../../input";
+import { Button } from "@/app/components/atoms/button";
+import { FormInput } from "../../atoms/input";
 
 interface IProps {
     post_id: string;

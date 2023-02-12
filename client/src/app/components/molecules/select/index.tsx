@@ -2,7 +2,7 @@ import { ChangeEvent, FC } from "react";
 
 import useFilter from "@/setup/contexts/filter.context";
 import { Option } from "@/setup/types/option.type";
-import { DropdownOption } from "../option";
+import { DropdownOption } from "@/app/components/atoms/option";
 
 interface IProps {
     name: string;
