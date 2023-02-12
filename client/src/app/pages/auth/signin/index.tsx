@@ -1,4 +1,4 @@
-import { SigninForm } from '@/app/components/auth/signinForm';
+import { SigninForm } from '@/app/components/organisms/signinForm';
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
 

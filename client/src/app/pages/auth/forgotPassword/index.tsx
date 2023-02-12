@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
 
-import { ForgotPasswordForm } from "@/app/components/auth/forgotPasswordForm";
+import { ForgotPasswordForm } from "@/app/components/organisms/forgotPasswordForm";
 
 export const ForgotPasswordPage: FC = () => {
     return (
