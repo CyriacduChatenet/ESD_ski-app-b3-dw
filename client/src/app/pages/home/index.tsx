@@ -1,11 +1,15 @@
 import { FC } from 'react';
 
 import { PostList } from '@/app/components/posts';
+import { UtilityBar } from '@/app/components/utilityBar';
 
 export const HomePage: FC = () => {
 	return (
-		<div className="px-40">
-			<PostList />
-		</div>
+		<>
+			<UtilityBar />
+			<div className="px-40">
+				<PostList />
+			</div>
+		</>
 	);
 };

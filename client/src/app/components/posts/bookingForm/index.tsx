@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { ChangeEvent, FC, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { BookingService } from "@/setup/services/booking.service";
@@ -8,7 +8,7 @@ interface IProps {
 }
 
 export const BookingForm: FC<IProps> = ({ post_id }) => {
-    const [credentials, setCrdentials] = useState({
+    const [credentials, setCredentials] = useState({
         post:[`${post_id}`],
         available: false,
     });
@@ -17,10 +17,10 @@ export const BookingForm: FC<IProps> = ({ post_id }) => {
 
     const bookingService = new BookingService();
 
-    const handleChange = (e: any) => {
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         e?.preventDefault();
         const { name, value } = e.target;
-        setCrdentials({...credentials, [name]: value});
+        setCredentials({...credentials, [name]: value});
     };
 
     const handleSubmit = (e: any) => {

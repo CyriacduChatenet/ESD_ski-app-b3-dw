@@ -5,7 +5,7 @@ import { Button } from '../button';
 export const Navbar: FC = () => {
     const location = useLocation(); 
 	return (
-		<nav className="px-40 h-16 bg-indigo-400 text-white mb-8">
+		<nav className="px-40 h-16 bg-indigo-400 text-white">
 			<ul className="w-full h-full flex items-center justify-between">
 				<li>
 					<Link to={'/'} className="font-bold text-xl">
