@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { UtilityForm } from "@/app/components/utilityBar/utilityForm";
+import { UtilityForm } from "@/app/components/organisms/utilityForm";
 
 export const UtilityBar: FC = () => {
     return (
