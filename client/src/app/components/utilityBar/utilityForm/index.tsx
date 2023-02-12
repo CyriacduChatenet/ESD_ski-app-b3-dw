@@ -1,9 +1,55 @@
 import { ChangeEvent, FC } from "react";
 
 import useFilter from "@/setup/contexts/filter.context";
+import { Option } from "@/setup/types/option.type";
+import { DropdownSelect } from "../../dropdown/select";
 
 export const UtilityForm: FC = () => {
     const { credentials, setCredentials } = useFilter();
+
+    const weightDropdown: {name: string, options: Option[]} = {
+        name: 'weight',
+        options: [
+            { label: 'Weight', value: ''},
+            { label: 45, value: 45},
+            { label: 50, value: 50},
+            { label: 55, value: 55},
+            { label: 60, value: 60},
+            { label: 65, value: 65},
+            { label: 70, value: 70},
+            { label: 75, value: 75},
+            { label: 80, value: 80},
+        ],
+    }
+
+    const styleDropdown: {name: string, options: Option[]} = {
+        name: 'style',
+        options: [
+            { label: 'Style', value: ''},
+            { label: 'Freeride', value: 'freeride'},
+            { label: 'Freestyle', value: 'freestyle'},
+            { label: 'Piste', value: 'piste'},
+            { label: 'All', value: 'all'}
+        ],
+    }
+
+    const sizeDropdown: {name: string, options: Option[]} = {
+        name: 'size',
+        options: [
+            { label: 'Size', value: ''},
+            { label: 140, value: 140},
+            { label: 145, value: 145},
+            { label: 150, value: 150},
+            { label: 155, value: 155},
+            { label: 160, value: 160},
+            { label: 165, value: 165},
+            { label: 170, value: 170},
+            { label: 175, value: 175},
+            { label: 180, value: 180},
+            { label: 185, value: 185},
+            { label: 190, value: 190},
+        ],
+    }
 
     const handleChange = (e: ChangeEvent<any>) => {
         e?.preventDefault();
@@ -14,38 +60,9 @@ export const UtilityForm: FC = () => {
     return (
         <form action="" className="w-full h-full flex items-center justify-around">
             <input type="text" name="addresse" placeholder="Search by address" className="w-80 py-1 px-4 rounded-lg" onChange={handleChange}/>
-            <select name="weight" className="py-1 px-4 rounded-lg" onChange={handleChange}>
-                <option value="">Weight</option>
-                <option value={45}>45</option>
-                <option value={50}>50</option>
-                <option value={55}>55</option>
-                <option value={60}>60</option>
-                <option value={65}>65</option>
-                <option value={70}>70</option>
-                <option value={75}>75</option>
-                <option value={80}>80</option>
-            </select>
-            <select name="style" className="py-1 px-4 rounded-lg" onChange={handleChange}>
-                <option value="">Style</option>
-                <option value="freeride">Freeride</option>
-                <option value="freestyle">freestyle</option>
-                <option value="piste">Piste</option>
-                <option value="all">All</option>
-            </select>
-            <select name="size" className="py-1 px-4 rounded-lg" onChange={handleChange}>
-                <option value="">Size</option>
-                <option value={140}>140</option>
-                <option value={145}>145</option>
-                <option value={150}>150</option>
-                <option value={155}>155</option>
-                <option value={160}>160</option>
-                <option value={165}>165</option>
-                <option value={170}>170</option>
-                <option value={175}>175</option>
-                <option value={180}>180</option>
-                <option value={185}>185</option>
-                <option value={190}>190</option>
-            </select>
+            <DropdownSelect name={weightDropdown.name} optionsArray={weightDropdown.options}/>
+            <DropdownSelect name={styleDropdown.name} optionsArray={styleDropdown.options}/>
+            <DropdownSelect name={sizeDropdown.name} optionsArray={sizeDropdown.options}/>
         </form>
     );
 };
