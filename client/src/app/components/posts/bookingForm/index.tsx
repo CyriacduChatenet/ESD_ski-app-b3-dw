@@ -2,6 +2,8 @@ import { ChangeEvent, FC, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { BookingService } from "@/setup/services/booking.service";
+import { Button } from "@/app/components/button";
+import { FormInput } from "../../input";
 
 interface IProps {
     post_id: string;
@@ -31,8 +33,8 @@ export const BookingForm: FC<IProps> = ({ post_id }) => {
 
     return (
         <form action=""  onSubmit={handleSubmit}>
-             <input type="tel" name="phoneNumber" className="border border-solid border-gray-400 px-4 py-1.5 mr-4 rounded-md" placeholder="phone number" onChange={handleChange} />
-             <input type="submit" className="px-8 py-2 rounded-lg bg-indigo-700 text-white font-bold" value="Reserved" />
+            <FormInput type={"tel"} name={"phoneNumber"} placeholder={"phone number"} onChange={() => handleChange}/>
+             <Button label="Reserved" px="px-8" py="py-2" background_color="bg-indigo-700"/>
         </form>
     );
 };

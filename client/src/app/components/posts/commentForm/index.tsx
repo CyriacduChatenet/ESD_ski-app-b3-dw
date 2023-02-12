@@ -3,6 +3,8 @@ import { FC, useState } from "react";
 import { CommentService } from "@/setup/services/comment.service";
 import { CommentStars } from "../commentStars";
 import usePost from "@/setup/contexts/post.context";
+import { Button } from "@/app/components/button";
+import { FormInput } from "../../input";
 
 interface IProps {
     post_id: string;
@@ -28,9 +30,9 @@ export const CommentForm: FC<IProps> = ({ post_id }) => {
     return (
         <form action=""  onSubmit={handleSubmit} className="h-1/2 flex flex-col justify-around mt-8">
             <CommentStars stars={stars} setStars={setStars}/>
-             <input type="text" name="username" className="w-4/5 border border-solid border-gray-400 px-4 py-1.5 rounded-md mt-4" placeholder="username" onChange={handleChange} />
+            <FormInput type="text" name={"username"} placeholder={"username"} w="w-4/5" onChange={() => handleChange}/>
              <textarea name="description" className="w-4/5  h-40 border border-solid border-gray-400 px-4 py-1.5 rounded-md" placeholder="description" onChange={handleChange}></textarea>
-             <input type="submit" className="w-4/5 px-8 py-2 rounded-lg bg-indigo-700 text-white font-bold mt-4" value="Add comment" />
+             <Button label="Add comment" px="px-8" py="py-2" background_color="bg-indigo-700" w="w-4/5"/>
         </form>
     );
 };

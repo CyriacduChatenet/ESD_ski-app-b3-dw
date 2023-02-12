@@ -7,11 +7,12 @@ interface IProps {
     px:string;
     ml?: string;
     my?:string
+    w?:string;
     onClick?: () => void;
 }
 
-export const Button: FC<IProps> = ({ label, background_color, px, py, ml, my, onClick }) => {
+export const Button: FC<IProps> = ({ label, background_color, px, py, ml, my, w, onClick }) => {
     return (
-        <button className={`${px} ${py} rounded-lg ${background_color} ${ml} ${my} text-white font-bold`} onClick={onClick}>{label}</button>
+        <button className={`${px} ${py} rounded-lg ${background_color} ${ml} ${my} ${w} text-white font-bold`} onClick={onClick}>{label}</button>
     );
 };
