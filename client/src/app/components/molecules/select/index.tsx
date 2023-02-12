@@ -19,7 +19,7 @@ export const DropdownSelect: FC<IProps> = ({ name, optionsArray }) => {
     };
     return (
         <select name={name} className="py-1 px-4 rounded-lg" onChange={handleChange}>
-            {optionsArray.map((option: Option) => <DropdownOption label={option.label} value={option.value}/>)}
+            {optionsArray.map((option: Option, index: number) => <DropdownOption key={index} label={option.label} value={option.value}/>)}
         </select>
     );
 };
