@@ -3,6 +3,7 @@ import { Comment } from "@/setup/types/comment.type";
 import { Shop } from "@/setup/types/shop.type";
 
 export type Post = {
+	id: string;
     _id: string;
     title: string;
     imageUrl: string;

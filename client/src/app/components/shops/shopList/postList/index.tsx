@@ -1,12 +1,22 @@
-import { FC, useEffect, useState } from 'react';
+import { FC } from 'react';
 
 import { Post } from '@/setup/types/post.type';
+import useShop from '@/setup/contexts/shop.context';
+import { PostService } from '@/setup/services/post.service';
 
 interface IProps {
 	posts: Post[];
 }
 
 export const DashboardPostList: FC<IProps> = ({ posts }) => {
+	const { data, setData } = useShop();
+
+	const postService = new PostService();
+
+	const handleDelete = (post_id: string) => {
+		postService.deleteOne(`${import.meta.env.VITE_APP_API_URL}/posts`, post_id);
+		setData(data.filter(post => post._id !== post_id));
+	};
 	return (
 		<table className="table-auto mt-4">
 			<thead className="bg-indigo-400 text-white">
@@ -50,7 +60,7 @@ export const DashboardPostList: FC<IProps> = ({ posts }) => {
 							<button className="bg-blue-500 text-white px-4 py-0.5 my-2 text-sm rounded-lg font-bold">Edit</button>
 						</td>
 						<td className="border border-solid border-gray-400 px-4 bg-white">
-							<button className="bg-red-500 text-white px-4 py-0.5 my-2 text-sm rounded-lg font-bold">Delete</button>
+							<button className="bg-red-500 text-white px-4 py-0.5 my-2 text-sm rounded-lg font-bold" onClick={() => handleDelete(post._id)}>Delete</button>
 						</td>
 					</tr>
 				))}
