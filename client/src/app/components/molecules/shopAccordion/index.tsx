@@ -20,6 +20,10 @@ export const ShopAccordion: FC<IProps> = ({ name, addresse, posts, id }) => {
 	const navigate = useNavigate();
     const shopService = new ShopService();
 
+	const handleUpdate = (id: string) => {
+		navigate(`/shop/edit-shop/${id}`)
+	};
+
     const handleDelete = () => {
         shopService.deleteOne(`${import.meta.env.VITE_APP_API_URL}/shops`, id);
         setData(data.filter((shop: Shop) => shop._id !== id));
@@ -30,7 +34,7 @@ export const ShopAccordion: FC<IProps> = ({ name, addresse, posts, id }) => {
 				<b>{name}</b> - {addresse}
 				<div style={{marginLeft: '60rem'}}>
 				<Button label='Create' background_color='bg-green-500' px='px-4' py='py-1' onClick={() => navigate(`/shop/create-post/${id}`)} />
-				<Button label='Edit' background_color='bg-blue-500' px='px-4' py='py-1' ml='ml-8' />
+				<Button label='Edit' background_color='bg-blue-500' px='px-4' py='py-1' ml='ml-8' onClick={() => handleUpdate(id)} />
 				<Button label='Delete' background_color='bg-red-500' px='px-4' py='py-1' ml='ml-8' onClick={() => handleDelete()} />
 				</div>
 			</summary>
