@@ -7,6 +7,7 @@ import { Button } from '@/app/components/atoms/button';
 import { TableEntry } from '@/app/components/atoms/tableEntry';
 import { TableCelular } from '@/app/components/atoms/tableCelular';
 import { Table } from '@/app/components/molecules/table';
+import { Shop } from '@/setup/types/shop.type';
 
 interface IProps {
 	posts: Post[];
