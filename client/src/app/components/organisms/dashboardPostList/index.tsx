@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { Post } from '@/setup/types/post.type';
 import useShop from '@/setup/contexts/shop.context';
@@ -7,13 +8,13 @@ import { Button } from '@/app/components/atoms/button';
 import { TableEntry } from '@/app/components/atoms/tableEntry';
 import { TableCelular } from '@/app/components/atoms/tableCelular';
 import { Table } from '@/app/components/molecules/table';
-import { Shop } from '@/setup/types/shop.type';
 
 interface IProps {
 	posts: Post[];
 }
 
 export const DashboardPostList: FC<IProps> = ({ posts }) => {
+	const navigate = useNavigate();
 	const TABLE_ENTRIES = [
 		'Index',
 		'Title',
@@ -34,6 +35,10 @@ export const DashboardPostList: FC<IProps> = ({ posts }) => {
 	const { data, setData } = useShop();
 
 	const postService = new PostService();
+
+	const handleUpdate = (post_id: string) => {
+		navigate(`/post/edit-post/${post_id}`);
+	}
 
 	const handleDelete = (post_id: string) => {
 		postService.deleteOne(`${import.meta.env.VITE_APP_API_URL}/posts`, post_id);
@@ -69,7 +74,7 @@ export const DashboardPostList: FC<IProps> = ({ posts }) => {
 							<TableCelular label={post.bookings.length} />
 							<TableCelular label={post.comments.length} />
 							<TableCelular>
-								<Button label="Edit" background_color="bg-blue-500" px="px-4" py="py-0.5" />
+								<Button label="Edit" background_color="bg-blue-500" px="px-4" py="py-0.5" onClick={() => handleUpdate(post.id)} />
 							</TableCelular>
 							<TableCelular>
 								<Button
