@@ -1,0 +1,28 @@
+{
+    "version": 2,
+    "builds": [
+      { "src": "src/app.module.ts", "use": "@vercel/node" }
+    ],
+    "routes": [
+      {
+        "src": "/(.*?)",
+        "dest": "/src/app.module.ts"
+      }
+    ],
+    "env": {
+      "NODE_ENV": "production"
+    },
+    "swagger": {
+      "basePath": "/api",
+      "doc": "src/swagger.yaml",
+      "routePath": "/api-docs",
+      "spec": {
+        "info": {
+          "title": "Your API Title",
+          "version": "1.0.0",
+          "description": "Your API Description"
+        }
+      }
+    }
+  }
+  
