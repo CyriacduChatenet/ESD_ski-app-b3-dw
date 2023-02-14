@@ -1,22 +1,26 @@
 {
-    "version": 2,
-    "builds": [
-      { "src": "src/app.module.ts", "use": "@vercel/node" }
-    ],
-    "routes": [
-      {
-        "src": "/(.*?)",
-        "dest": "/src/app.module.ts",
-        "headers": {
-          "Access-Control-Allow-Origin": "*",
-          "Access-Control-Allow-Methods": "GET,HEAD,PUT,PATCH,POST,DELETE, OPTIONS",
-          "Access-Control-Allow-Headers": "Authorization, Content-Type"
-        },
-        "methods": ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"]
-      }
-    ],
-    "env": {
-      "NODE_ENV": "production"
-    }
-  }
-  
+	"version": 2,
+	"builds": [
+		{
+			"src": "src/app.module.ts",
+			"use": "@vercel/node",
+			"config": {
+				"env": {
+					"NODE_ENV": "production"
+				}
+			}
+		}
+	],
+	"routes": [
+		{
+			"src": "/(.*?)",
+			"dest": "/src/app.module.ts",
+			"headers": {
+				"Access-Control-Allow-Origin": "*",
+				"Access-Control-Allow-Methods": "GET,HEAD,PUT,PATCH,POST,DELETE, OPTIONS",
+				"Access-Control-Allow-Headers": "Authorization, Content-Type"
+			},
+			"methods": ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"]
+		}
+	]
+}
