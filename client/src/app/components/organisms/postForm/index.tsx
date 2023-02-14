@@ -17,9 +17,9 @@ export const PostForm: FC<IProps> = ({ handleSubmit }) => {
         shop: [params.id]
     });
 
-    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (e?: ChangeEvent<any>) => {
         e?.preventDefault();
-        const { name, value } = e.target;
+        const { name, value } = e?.target;
         setCredentials({...credentials, [name]: value});
     };
 

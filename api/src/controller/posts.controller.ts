@@ -1,7 +1,6 @@
 import { Request, Response } from "express";
 
 import { PostDTO } from "../dto/post.dto";
-import Post from "../models/post.model";
 import { PostService } from "../services/post.service";
 
 const postService = new PostService();

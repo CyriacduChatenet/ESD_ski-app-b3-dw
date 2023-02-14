@@ -5,16 +5,15 @@ import { FormInputLabel } from '@/app/components/molecules/formInputLabel';
 import { Button } from '@/app/components/atoms/button';
 
 interface IProps {
-	handleSubmit: (credentials: Object) => void;
+	handleSubmit: (credentials: Object) => {};
 }
 
 export const ShopForm: FC<IProps> = ({ handleSubmit }) => {
 
     const [credentials, setCredentials] = useState({});
 
-    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-        e?.preventDefault();
-        const { name, value } = e.target;
+    const handleChange = (e?: ChangeEvent<any>) => {
+        const { name, value } = e?.target;
         setCredentials({...credentials, [name]: value});
     }; 
 	return (
