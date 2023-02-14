@@ -9,7 +9,7 @@ export const CreatePostPage: FC = () => {
     const params = useParams();
 	const postService = new PostService();
 
-	const handleSubmit = (credentials: Object) => {
+	const handleSubmit = (credentials: Object): void => {
         postService.createAndUpdate(`${import.meta.env.VITE_APP_API_URL}/shops/${params.id}`, `${import.meta.env.VITE_APP_API_URL}/posts`, credentials)
         navigate('/dashboard');
 	};

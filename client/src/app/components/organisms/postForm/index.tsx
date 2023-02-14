@@ -6,7 +6,7 @@ import { FormInputLabel } from '@/app/components/molecules/formInputLabel';
 import { Button } from '@/app/components/atoms/button';
 
 interface IProps {
-	handleSubmit: (credentials: Object) => {};
+	handleSubmit: (credentials: Object) => void;
 }
 
 export const PostForm: FC<IProps> = ({ handleSubmit }) => {

@@ -9,7 +9,7 @@ export const UpdatePostPage: FC = () => {
     const params = useParams();
 	const postService = new PostService();
 
-	const handleSubmit = (credentials: Object) => {
+	const handleSubmit = (credentials: Object): void => {
         postService.updateOne(`${import.meta.env.VITE_APP_API_URL}/posts${params.id}`, credentials)
         navigate('/dashboard');
 	};

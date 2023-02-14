@@ -9,7 +9,7 @@ export const CreateShopPage: FC = () => {
     const params = useParams();
 	const shopService = new ShopService();
 
-	const handleSubmit = (credentials: Object) => {
+	const handleSubmit = (credentials: Object): void => {
         shopService.create(`${import.meta.env.VITE_APP_API_URL}/shops/`, credentials)
         navigate('/dashboard');
 	};
