@@ -3,7 +3,7 @@ info:
   title: Swagger Ski app API - OpenAPI 3.0
   version: 1.0.11
 servers:
-  - url: ${API_URL}/api/v1
+  - url: https://ski-app-b3-dw-api.vercel.app/api/v1
 paths:
   /posts/:
     get:
