@@ -32,7 +32,7 @@ export const router = express.Router();
 
 const swaggerDocument = YAML.load(path.join(__dirname, '../doc/definition.yaml'));
 const options = {
-    customCssUrl: "https://cdn.jsdelivr.net/npm/swagger-ui-themes@3.0.0/themes/3.x/theme-newspaper.css",
+    customCssUrl: path.join(__dirname, '../doc/swagger.css'),
 }
 
 router.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerDocument, options));
