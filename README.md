@@ -9,7 +9,7 @@
 [![swagger](https://img.shields.io/badge/Swagger-green?style=for-the-badge&logo=swagger&logoColor=white)](https://swagger.io/)
 
 ## Deployed envs
-- [API](https://ski-app-b3-dw-api.vercel.app)
+- [API](https://ski-app-b3-dw-api.vercel.app/api/v1/doc)
 - [CLIENT](https://ski-app-b3-dw.vercel.app)
 
 ## env variables 
