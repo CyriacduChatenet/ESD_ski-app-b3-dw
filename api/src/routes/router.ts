@@ -23,6 +23,7 @@ const options = {
         version: '1.0.0',
         },
     },
+    customCssUrl: 'https://raw.githubusercontent.com/ostranme/swagger-ui-themes/develop/themes/3.x/theme-newspaper.css',
     apis: ['src/app.module.ts', 'src/doc/definition.yaml'],
 };
 const openapiSpecification = swaggerJSDoc(options);
