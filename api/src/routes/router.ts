@@ -2,7 +2,6 @@ import express from 'express';
 import swaggerUi from 'swagger-ui-express';
 import YAML from 'yamljs'
 import path from 'path';
-const swaggerCSS = require('swagger-ui-dist/swagger-ui.css')
 
 import { BookingController } from '../controller/booking.controller';
 import { CommentController } from '../controller/comment.controller';
@@ -19,7 +18,7 @@ export const router = express.Router();
 const swaggerDocument = YAML.load(path.join(__dirname, '../doc/definition.yaml'))
 
 const options = {
-    customCssUrl: swaggerCSS
+    customCssUrl: path.resolve(__dirname, '../../node_modules/swagger-ui-dist/swagger-ui.css'),
 }
 
 router.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerDocument, options));
