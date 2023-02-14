@@ -1,6 +1,6 @@
 openapi: 3.0.3
 info:
-  title: Swagger Petstore - OpenAPI 3.0
+  title: Swagger Ski app API - OpenAPI 3.0
   version: 1.0.11
 servers:
   - url: http://localhost:8000/api/v1
