@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { Link } from "react-router-dom";
 
 import { FormInput } from "@/app/components/atoms/input";
 import { FormInputLabel } from "@/app/components/molecules/formInputLabel";
@@ -13,7 +14,7 @@ export const SigninForm: FC = () => {
             <FormInputLabel label={"Password"}>
                 <FormInput type={"password"} name={"password"} placeholder={"Password"}/>
             </FormInputLabel>
-            <Button label={"Signin"} background_color={"bg-indigo-700"} py={"py-2"} px={"px-8"}/>
+            <Link to={'/dashboard'}><Button label={"Signin"} background_color={"bg-indigo-700"} py={"py-2"} px={"px-8"}/></Link>
         </form>
     );
 };
