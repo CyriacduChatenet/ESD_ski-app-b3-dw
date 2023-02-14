@@ -9,8 +9,8 @@
 [![swagger](https://img.shields.io/badge/Swagger-green?style=for-the-badge&logo=swagger&logoColor=white)](https://swagger.io/)
 
 ## Deployed envs
-- [API]()
-- [CLIENT]()
+- [API](https://ski-app-b3-dw-api.vercel.app)
+- [CLIENT](https://ski-app-b3-dw.vercel.app)
 
 ## env variables 
 ```bash
