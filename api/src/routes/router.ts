@@ -1,8 +1,8 @@
 import express from 'express';
 import swaggerUi from 'swagger-ui-express';
-import swaggerJSDoc from 'swagger-jsdoc';
 import YAML from 'yamljs'
 import path from 'path';
+const swaggerCSS = require('swagger-ui-dist/swagger-ui.css')
 
 import { BookingController } from '../controller/booking.controller';
 import { CommentController } from '../controller/comment.controller';
@@ -16,23 +16,10 @@ const shopController = new ShopController();
 
 export const router = express.Router();
 
-// const options = {
-//     failOnErrors: true,
-//     definition: {
-//         openapi: '3.0.0',
-//         info: {
-//         title: 'App ski API',
-//         version: '1.0.0',
-//         },
-//     },
-//     apis: ['src/app.module.ts', 'src/doc/definition.yaml'],
-// };
-// const openapiSpecification = swaggerJSDoc(options);
-// router.use('/doc', swaggerUi.serve, swaggerUi.setup(openapiSpecification));
+const swaggerDocument = YAML.load(path.join(__dirname, '../doc/definition.yaml'))
 
-const swaggerDocument = YAML.load(path.join(__dirname, '../doc/definition.yaml'));
 const options = {
-    customCssUrl: path.join(__dirname, '../doc/swagger.css'),
+    customCssUrl: swaggerCSS
 }
 
 router.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerDocument, options));
