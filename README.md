@@ -7,10 +7,12 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/docs/)
 [![Tailwind.CSS](https://img.shields.io/badge/TailwindCSS-16a1ba?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://www.typescriptlang.org/docs/)
 [![swagger](https://img.shields.io/badge/Swagger-green?style=for-the-badge&logo=swagger&logoColor=white)](https://swagger.io/)
+[![storybook](https://img.shields.io/badge/Storybook.js-FF4685?style=for-the-badge&logo=storybook&logoColor=FFFFFF)](https://storybook.js.org/)
 
 ## Deployed envs
 - [API](https://ski-app-b3-dw-api.vercel.app/api/v1/doc)
 - [CLIENT](https://ski-app-b3-dw.vercel.app)
+- [Ui Kit](https://63eba3e96d461cfe18642c89-rggckmfovn.chromatic.com/)
 
 ## env variables 
 ```bash
