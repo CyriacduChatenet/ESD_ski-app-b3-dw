@@ -1,3 +1,5 @@
+import '../src/app/styles/index.css';
+
 export const parameters = {
   backgrounds: {
     default: 'light',
