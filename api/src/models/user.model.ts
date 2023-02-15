@@ -1,4 +1,4 @@
-import { model, Schema } from "mongoose";
+import { model, Schema, SchemaTypes } from "mongoose";
 import { IUser } from "../types/user.type.";
 
 const userSchema = new Schema<IUser>({
@@ -12,6 +12,12 @@ const userSchema = new Schema<IUser>({
   password: {
     type: String,
   },
+  resetTokenPassword: [
+		{
+			type: SchemaTypes.ObjectId,
+			ref: 'ResetTokenPassword',
+		},
+	],
 });
 
 const User = model<IUser>("users", userSchema);

@@ -24,6 +24,7 @@ class AuthController {
 			username: req.body.username,
 			email: req.body.email,
 			password: encryptPassword,
+			resetTokenPassword: req.body.reset_token_password,
 		};
 
 		try {
