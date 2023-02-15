@@ -12,7 +12,7 @@
 ## Deployed envs
 - [API](https://ski-app-b3-dw-api.vercel.app/api/v1/doc)
 - [CLIENT](https://ski-app-b3-dw.vercel.app)
-- [Ui Kit](https://www.chromatic.com/library?appId=63eba3e96d461cfe18642c89&inviteToken=da39e62754d9408fabc265f52c80c1da)
+- [Ui Kit](https://63eba3e96d461cfe18642c89-rggckmfovn.chromatic.com/)
 
 ## env variables 
 ```bash
