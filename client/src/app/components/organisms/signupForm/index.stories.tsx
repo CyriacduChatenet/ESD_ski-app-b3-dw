@@ -10,7 +10,10 @@ export default {
 } as ComponentMeta<typeof SignupForm>;
 
 export const Primary: ComponentStory<typeof SignupForm> = () => (
-    <form action="" className="flex flex-col items-center justify-around h-72">
+    <form action="" className="flex flex-col items-center justify-around h-96">
+    <FormInputLabel label={'Username'}>
+        <FormInput type={'text'} name={'username'} placeholder={'Username'} />
+    </FormInputLabel>
     <FormInputLabel label={'Email'}>
         <FormInput type={'email'} name={'email'} placeholder={'Email'} />
     </FormInputLabel>

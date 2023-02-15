@@ -3,7 +3,7 @@ import User from "../models/user.model";
 class UserService {
 
   public async findAll() {
-    return await User.find().populate('posts');
+    return await User.find();
   };
 
   public async findOneById(id: string) {
