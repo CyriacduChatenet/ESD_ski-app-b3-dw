@@ -7,11 +7,15 @@ import { BookingController } from '../controller/booking.controller';
 import { CommentController } from '../controller/comment.controller';
 import { PostController } from '../controller/posts.controller';
 import ShopController from '../controller/shop.controller';
+import UserController from '../controller/user.controller';
+import AuthController from '../controller/auth.controller';
 
 const bookingController = new BookingController();
 const commentController = new CommentController();
 const postController = new PostController();
 const shopController = new ShopController();
+const userController = new UserController();
+const authController = new AuthController();
 
 export const router = express.Router();
 
@@ -46,3 +50,8 @@ router.get('/shops/:id', shopController. findOneShopById);
 router.post('/shops', shopController.createShop);
 router.patch('/shops/:id', shopController.updateShop);
 router.delete('/shops/:id', shopController.deleteShop);
+
+router.get('/users', userController.findAllUsers);
+
+router.post('/auth/signin', authController.signIn);
+router.post('/auth/signup', authController.signUp);
