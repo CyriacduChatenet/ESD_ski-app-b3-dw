@@ -23,7 +23,7 @@ class MailController {
 			to: email,
 			subject: 'Signup user',
 			html: `<div>
-          <a href="http://localhost:5173/reset-password/${reset_token}">Reset password</a>
+          <a href="http://localhost:5173/reset-password/${reset_token}" target="_blank">Reset password</a>
           </div>`,
 		});
 	};
