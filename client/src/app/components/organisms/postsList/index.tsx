@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { PostCard } from '@/app/components/molecules/card';
@@ -20,42 +20,40 @@ export const PostList: FC = () => {
 
 		fetch();
 	}, []);
-	return (
-		<>
-			{credentials.addresse === '' || credentials.size === 0 || credentials.style === '' || credentials.weight === 0 ? data
-				.map((post: Post, index: number) => (
-					<Link to={`/post/${post._id}`} key={index}>
-						<PostCard
-							address="route du soulan"
-							thumbnail_url={post.imageUrl}
-							size={post.size}
-							weight={post.weight}
-							price={post.price}
-							title={post.title}
-							style={post.style}
-						/>
-					</Link>
-				)) : data
-				.filter(
-					(post: Post) =>
-						post.shop[0].addresse === credentials.addresse &&
-						post.size === credentials.size &&
-						post.style === credentials.style &&
-						post.weight === credentials.weight
-				)
-				.map((post: Post, index: number) => (
-					<Link to={`/post/${post._id}`} key={index}>
-						<PostCard
-							address="route du soulan"
-							thumbnail_url={post.imageUrl}
-							size={post.size}
-							weight={post.weight}
-							price={post.price}
-							title={post.title}
-							style={post.style}
-						/>
-					</Link>
-				))}
-		</>
-	);
+
+	const displayData = useMemo(() => {
+		if (credentials.size != 0 && credentials.style != '' || credentials.addresse != '' || credentials.weight != 0) {
+			return data
+			.filter(
+				(post: Post) => post.size == credentials.size || post.weight == credentials.weight || post.style == credentials.style
+			)
+			.map((post: Post, index: number) => (
+				<Link to={`/post/${post._id}`} key={index}>
+					<PostCard
+						address="route du soulan"
+						thumbnail_url={post.imageUrl}
+						size={post.size}
+						weight={post.weight}
+						price={post.price}
+						title={post.title}
+						style={post.style}
+					/>
+				</Link>
+			));
+		}
+		return data.map((post: Post, index: number) => (
+			<Link to={`/post/${post._id}`} key={index}>
+				<PostCard
+					address="route du soulan"
+					thumbnail_url={post.imageUrl}
+					size={post.size}
+					weight={post.weight}
+					price={post.price}
+					title={post.title}
+					style={post.style}
+				/>
+			</Link>
+		));
+	}, [credentials]);
+	return <>{displayData}</>;
 };
