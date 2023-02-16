@@ -19,7 +19,18 @@ class ResetTokenPasswordService {
   };
 
   public async createOne(_id: string) {
-    const reset_token = await jwt.sign({_id}, String(process.env.JWT_ACCESS_TOKEN));
+    function makeid(length: number) {
+      let result = '';
+      const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+      const charactersLength = characters.length;
+      let counter = 0;
+      while (counter < length) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        counter += 1;
+      }
+      return result;
+  }
+    const reset_token = makeid(200);
     return await ResetTokenPassword.create({reset_token, user: [`${_id}`]});
   }
 
