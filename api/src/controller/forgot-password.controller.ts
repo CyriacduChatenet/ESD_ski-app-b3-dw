@@ -14,7 +14,7 @@ class ForgotPasswordController {
             const userInDB = await userService.findOneByEmail(req.body.email) as any;
             const resetToken = await resetTokenPasswordService.createOne(userInDB._id);
             userService.updateOne(userInDB._id, {resetTokenPassword: resetToken._id})
-            return mailController.sendResetPasswordMail(req.body.email)
+            return mailController.sendResetPasswordMail(req.body.email, resetToken.reset_token)
         } catch (err: any) {
             throw new Error(err);
         }
