@@ -10,6 +10,7 @@ import ShopController from '../controller/shop.controller';
 import UserController from '../controller/user.controller';
 import AuthController from '../controller/auth.controller';
 import ResetPasswordTokenController from '../controller/resetTokenPassword.controller';
+import ForgotPasswordController from '../controller/forgot-password.controller';
 
 const bookingController = new BookingController();
 const commentController = new CommentController();
@@ -18,6 +19,7 @@ const shopController = new ShopController();
 const userController = new UserController();
 const authController = new AuthController();
 const resetTokenPasswordController = new ResetPasswordTokenController();
+const forgotPasswordController = new ForgotPasswordController();
 
 export const router = express.Router();
 
@@ -57,6 +59,7 @@ router.get('/users', userController.findAllUsers);
 
 router.post('/auth/signin', authController.signIn);
 router.post('/auth/signup', authController.signUp);
+router.post('/auth/forgot-password', forgotPasswordController.sendToken);
 
 router.get('/auth/reset-token-password', resetTokenPasswordController.findAllResetTokensPassword);
 router.get('/auth/reset-token-password/:id', resetTokenPasswordController.findOneResetTokenPasswordById);

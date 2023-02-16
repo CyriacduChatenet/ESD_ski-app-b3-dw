@@ -26,6 +26,18 @@ class AuthService {
 		})
 		.catch(err => console.error(err))
 	}
+
+	async resetPassword(credentials: Object) {
+		fetch(`${import.meta.env.VITE_APP_API_URL}/auth/forgot-password`, {
+		    method: 'POST',
+		    headers: { 'Content-Type' : 'application/json'},
+		    body: JSON.stringify(credentials)
+		}).then(res => res.json())
+		.then(res => {
+		    localStorage.setItem('reset_token', res.reset_token);
+		})
+		.catch(err => console.error(err))
+	}
 }
 
 export default AuthService;

@@ -7,15 +7,15 @@ dotenv.config();
 class ResetTokenPasswordService {
 
   public async findAll() {
-    return await ResetTokenPassword.find().populate(['user']);
+    return await ResetTokenPassword.find().populate('user');
   };
 
   public async findOneById(id: string) {
-    return await ResetTokenPassword.findById({_id: id}).populate(['user']);
+    return await ResetTokenPassword.findById({_id: id}).populate('user');
   };
 
   public async findOneByEmail(email: string) {
-    return await ResetTokenPassword.findOne({email}).populate(['user']);
+    return await ResetTokenPassword.findOne({email}).populate('user');
   };
 
   public async createOne(_id: string) {
