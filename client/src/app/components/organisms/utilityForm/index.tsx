@@ -10,7 +10,7 @@ export const UtilityForm: FC = () => {
     const weightDropdown: {name: string, options: Option[]} = {
         name: 'weight',
         options: [
-            { label: 'Weight', value: ''},
+            { label: 'Weight', value: 0},
             { label: 45, value: 45},
             { label: 50, value: 50},
             { label: 55, value: 55},
@@ -36,7 +36,7 @@ export const UtilityForm: FC = () => {
     const sizeDropdown: {name: string, options: Option[]} = {
         name: 'size',
         options: [
-            { label: 'Size', value: ''},
+            { label: 'Size', value: 0},
             { label: 140, value: 140},
             { label: 145, value: 145},
             { label: 150, value: 150},
