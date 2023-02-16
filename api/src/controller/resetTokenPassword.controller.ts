@@ -14,8 +14,8 @@ class ResetPasswordTokenController {
     return res.status(200).json(resetTokenPasswords);
   };
 
-  public async findOneResetTokenPasswordById(req: Request, res: Response) {
-    const resetTokenPassword = await resetTokenPasswordService.findOneById(req.params.id);
+  public async findOneResetTokenPasswordByToken(req: Request, res: Response) {
+    const resetTokenPassword = await resetTokenPasswordService.findOneByResetTokenPassword(req.params.reset_token);
     return res.status(200).json(resetTokenPassword);
   };
 

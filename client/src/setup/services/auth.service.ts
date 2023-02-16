@@ -27,7 +27,7 @@ class AuthService {
 		.catch(err => console.error(err))
 	}
 
-	async resetPassword(credentials: Object) {
+	async forgotPassword(credentials: Object) {
 		fetch(`${import.meta.env.VITE_APP_API_URL}/auth/forgot-password`, {
 		    method: 'POST',
 		    headers: { 'Content-Type' : 'application/json'},
@@ -37,6 +37,11 @@ class AuthService {
 		    localStorage.setItem('reset_token', res.reset_token);
 		})
 		.catch(err => console.error(err))
+	}
+
+	async resetPassword(credentials: any, resetToken: string) {
+		const tokenInDB = await this.useFetch.get(`${import.meta.env.VITE_APP_API_URL}/auth/reset-token-password/${resetToken}`)
+		this.useFetch.patch(`${import.meta.env.VITE_APP_API_URL}/user/${tokenInDB.user._id}`, credentials)
 	}
 }
 

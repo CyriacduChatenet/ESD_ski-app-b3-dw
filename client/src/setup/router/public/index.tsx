@@ -15,7 +15,7 @@ export const PublicRouter: FC = () => {
 			<Route path={'/signin'} element={<SigninPage />} />
 			<Route path={'/signup'} element={<SignupPage />} />
 			<Route path={'/forgot-password'} element={<ForgotPasswordPage />} />
-			<Route path={'/reset-password/:id'} element={<ResetPasswordPage />} />
+			<Route path={'/reset-password/:resetToken'} element={<ResetPasswordPage />} />
 			<Route path={'/post/:id'} element={<PostPage />} />
 		</Routes>
 	);

@@ -5,17 +5,12 @@ import ResetTokenPassword from "../models/resetTokenPassword.model";
 dotenv.config();
 
 class ResetTokenPasswordService {
-
   public async findAll() {
     return await ResetTokenPassword.find().populate('user');
   };
 
-  public async findOneById(id: string) {
-    return await ResetTokenPassword.findById({_id: id}).populate('user');
-  };
-
-  public async findOneByEmail(email: string) {
-    return await ResetTokenPassword.findOne({email}).populate('user');
+  public async findOneByResetTokenPassword(reset_token: string) {
+    return await ResetTokenPassword.findOne({reset_token}).populate('user');
   };
 
   public async createOne(_id: string) {

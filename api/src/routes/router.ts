@@ -56,13 +56,17 @@ router.patch('/shops/:id', shopController.updateShop);
 router.delete('/shops/:id', shopController.deleteShop);
 
 router.get('/users', userController.findAllUsers);
+router.get('/user/:id', userController.findOneUserById);
+router.post('/user', userController.createUser);
+router.patch('/user/:id', userController.updateUser);
+router.delete('/user/:id', userController.deleteUser);
 
 router.post('/auth/signin', authController.signIn);
 router.post('/auth/signup', authController.signUp);
 router.post('/auth/forgot-password', forgotPasswordController.sendToken);
 
 router.get('/auth/reset-token-password', resetTokenPasswordController.findAllResetTokensPassword);
-router.get('/auth/reset-token-password/:id', resetTokenPasswordController.findOneResetTokenPasswordById);
+router.get('/auth/reset-token-password/:resetToken', resetTokenPasswordController.findOneResetTokenPasswordByToken);
 router.post('/auth/reset-token-password', resetTokenPasswordController.createResetTokenPassword);
 router.patch('/auth/reset-token-password/:id', resetTokenPasswordController.updateResetTokenPassword);
 router.delete('/auth/reset-token-password/:id', resetTokenPasswordController.deleteResetTokenPassword);
