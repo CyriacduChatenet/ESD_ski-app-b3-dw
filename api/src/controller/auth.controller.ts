@@ -5,10 +5,12 @@ import dotenv from 'dotenv';
 
 import UserService from '../services/user.service';
 import { IUser } from '../types/user.type.';
+import MailController from './mail.controller';
 
 dotenv.config();
 
 const userService = new UserService();
+const mailController = new MailController();
 
 class AuthController {
 	private generateAccessToken = (email: string, password: string) => {
@@ -29,7 +31,8 @@ class AuthController {
 
 		try {
 			const user = await userService.createOne(newUser);
-			return res.status(201).json({ user });
+			res.status(201).json({ user });
+			return mailController.sendWelcomeMail(req.body.email);
 		} catch (err: any) {
 			return res.status(401).json('Unauthorize');
 		}
