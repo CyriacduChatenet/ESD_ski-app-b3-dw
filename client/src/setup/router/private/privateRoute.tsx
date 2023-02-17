@@ -3,7 +3,7 @@ import TokenService from '@/setup/services/token.service'
 
 export const PrivateRoutes = () => {
     const tokenService = new TokenService();
-    let auth = {'token': tokenService.checkAccessToken()}
+    let auth = {'token': true}
     return(
         auth.token ? <Outlet/> : <Navigate to="/signin"/>
     )
