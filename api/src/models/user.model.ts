@@ -18,10 +18,12 @@ const userSchema = new Schema<IUser>({
 			ref: 'ResetTokenPassword',
 		},
 	],
-	shop: {
-		type: SchemaTypes.ObjectId,
-		ref: 'Shop',
-	},
+	shop: [
+		{
+			type: SchemaTypes.ObjectId,
+			ref: 'Shop',
+		},
+	]
 });
 
 const User = model<IUser>('User', userSchema);

@@ -15,7 +15,7 @@ export const SignupForm: FC = () => {
 	const handleChange = (e?: ChangeEvent<any>) => {
 		e?.preventDefault();
 		const { name, value } = e?.target;
-		setCredentials({ ...credentials, [name]: value });
+		setCredentials({ ...credentials, [name]: value, shop: {}});
 	};
 
 	const handleSubmit = (e:FormEvent) => {

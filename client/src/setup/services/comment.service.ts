@@ -20,7 +20,7 @@ export class CommentService {
     };
 
     updateOne(url: string, credentials: Object) {
-        return this.useFetch.patch(url, credentials);
+        return this.useFetch.patch(url, credentials, String(localStorage.getItem('acessToken')));
     };
 
     async createAndUpdate(comment_url: string, post_url: string, credentials: Object, setState: Dispatch<SetStateAction<Post[]>>) {
@@ -32,6 +32,6 @@ export class CommentService {
 	};
 
     deleteOne(url: string, id: string) {
-        return this.useFetch.delete(`${url}/${id}`);
+        return this.useFetch.delete(`${url}/${id}`, String(localStorage.getItem('acessToken')));
     };
 };

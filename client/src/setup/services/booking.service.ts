@@ -19,7 +19,7 @@ export class BookingService implements Booking {
 	}
 
 	async updateOne(url: string, credentials: Object) {
-		return await this.useFetch.patch(url, credentials);
+		return await this.useFetch.patch(url, credentials, String(localStorage.getItem('acessToken')));
 	}
 
 	async createAndUpdate(booking_url: string, post_url: string, credentials: Object) {
@@ -28,6 +28,6 @@ export class BookingService implements Booking {
 	};
 
 	async deleteOne(url: string, id: string) {
-		return await this.useFetch.delete(`${url}/${id}`);
+		return await this.useFetch.delete(`${url}/${id}`, String(localStorage.getItem('acessToken')));
 	}
 }

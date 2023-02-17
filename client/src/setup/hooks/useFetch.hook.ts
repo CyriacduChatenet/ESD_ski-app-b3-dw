@@ -1,15 +1,22 @@
 export class useFetch {
-    get = async (url: string) => {
-        const response = await fetch(url);
-        const responseJSON = response.json();
-        return responseJSON;
-    };
-
-    post = async (url: string, credentials: any) => {
+    get = async (url: string, token?: string) => {
         const response = await fetch(url, {
             headers: {
                 'Accept': 'application/json',
                 'Content-type': 'application/json; charset=UTF-8',
+                'Authorization': 'Bearer ' + token,
+            }
+        });
+        const responseJSON = await response.json();
+        return responseJSON;
+    };
+
+    post = async (url: string, credentials: any, token? : string) => {
+        const response = await fetch(url, {
+            headers: {
+                'Accept': 'application/json',
+                'Content-type': 'application/json; charset=UTF-8',
+                'Authorization': 'Bearer ' + token,
             },
             method: 'POST',
             body: JSON.stringify(credentials)
@@ -18,11 +25,12 @@ export class useFetch {
         return responseJSON;
     };
 
-    patch = async (url: string, credentials: Object) => {
+    patch = async (url: string, credentials: Object, token: string) => {
         const response = await fetch(url, {
             headers: {
                 'Accept': 'application/json',
                 'Content-type': 'application/json; charset=UTF-8',
+                'Authorization': 'Bearer ' + token,
             },
             method: 'PATCH',
             body: JSON.stringify(credentials)
@@ -31,11 +39,12 @@ export class useFetch {
         return responseJSON;
     };
 
-    delete = async (url: string) => {
+    delete = async (url: string, token: string) => {
         const response = await fetch(url, {
             headers: {
                 'Accept': 'application/json',
                 'Content-type': 'application/json; charset=UTF-8',
+                'Authorization': 'Bearer ' + token,
             },
             method: 'DELETE',
         });

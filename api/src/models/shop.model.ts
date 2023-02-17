@@ -9,10 +9,12 @@ const shopSchema = new Schema<IShop>({
       ref: "Post",
     },
   ],
-  user: {
-		type: SchemaTypes.ObjectId,
-		ref: 'User',
-	},
+  user: [
+    {
+      type: SchemaTypes.ObjectId,
+      ref: 'User',
+    },
+  ],
   addresse: String,
 });
 

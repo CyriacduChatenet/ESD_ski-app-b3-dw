@@ -1,20 +1,14 @@
 import { useFetch as useFetchHook } from "@/setup/hooks/useFetch.hook";
-import { UserService } from "./user.service";
 
-export class ShopService {
+export class UserService {
     useFetch = new useFetchHook();
-    userService = new UserService();
 
     findAll(url: string) {
         return this.useFetch.get(url);
     };
 
-    findOne(url: string) {
-        return this.useFetch.get(`${url}`);
-    };
-
-    create(url: string, credentials: Object) {
-        return this.useFetch.post(url, credentials, String(localStorage.getItem('acessToken')));
+    findOne = async (url: string) => {
+        return await this.useFetch.get(`${url}`);
     };
 
     updateOne(url: string, credentials: Object) {
