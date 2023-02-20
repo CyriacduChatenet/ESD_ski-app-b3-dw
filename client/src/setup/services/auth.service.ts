@@ -15,19 +15,20 @@ class AuthService {
 		.catch(err => console.error(err))
 	}
 
-	async signup(credentials: Object) {
-		fetch(`${import.meta.env.VITE_APP_API_URL}/auth/signup`, {
+	signup = async (credentials: Object) => {
+		const response = await fetch(`${import.meta.env.VITE_APP_API_URL}/auth/signup`, {
 		    method: 'POST',
-		    headers: { 'Content-Type' : 'application/json'},
+		    headers: { 'Content-Type' : 'application/json', 'Accept' : 'application/json'},
 		    body: JSON.stringify(credentials)
-		}).then(res => res.json())
-		.catch(err => console.error(err))
+		});
+		const responseJSON = await response.json();
+		return responseJSON;
 	}
 
 	async forgotPassword(credentials: Object) {
 		fetch(`${import.meta.env.VITE_APP_API_URL}/auth/forgot-password`, {
 		    method: 'POST',
-		    headers: { 'Content-Type' : 'application/json'},
+		    headers: { 'Content-Type' : 'application/json', 'Accept' : 'application/json'},
 		    body: JSON.stringify(credentials)
 		}).then(res => res.json())
 		.then(res => {
@@ -38,7 +39,7 @@ class AuthService {
 
 	async resetPassword(credentials: any, resetToken: string) {
 		const tokenInDB = await this.useFetch.get(`${import.meta.env.VITE_APP_API_URL}/auth/reset-token-password/${resetToken}`)
-		this.useFetch.patch(`${import.meta.env.VITE_APP_API_URL}/user/${tokenInDB.user._id}`, credentials, String(localStorage.getItem('acessToken')))
+		this.useFetch.put(`${import.meta.env.VITE_APP_API_URL}/user/${tokenInDB.user._id}`, credentials)
 	}
 }
 
