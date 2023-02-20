@@ -18,7 +18,7 @@ export class PostService {
     };
 
     updateOne(url: string, credentials: Object) {
-        return this.useFetch.patch(url, credentials, String(localStorage.getItem('acessToken')));
+        return this.useFetch.patch(url, credentials);
     };
 
     async createAndUpdate(shop_url: string, post_url: string, credentials: Object) {

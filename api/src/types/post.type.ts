@@ -15,5 +15,5 @@ export default interface IPost {
     createdAt: Date;
     comments: IComment[];
     bookings: IBooking[];
-    shop: IShop[];
+    shop: IShop;
 };
