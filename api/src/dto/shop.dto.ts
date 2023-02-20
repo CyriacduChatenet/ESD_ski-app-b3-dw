@@ -5,5 +5,6 @@ export const ShopDTO = (req: Request) => {
         name: req.body.name,
         posts: req.body.posts,
         addresse: req.body.addresse,
+        user: req.body.user,
     }
 }

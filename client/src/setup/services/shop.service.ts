@@ -18,7 +18,7 @@ export class ShopService {
     };
 
     updateOne(url: string, credentials: Object) {
-        return this.useFetch.patch(url, credentials, String(localStorage.getItem('acessToken')));
+        return this.useFetch.patch(url, credentials);
     };
 
     deleteOne(url: string, id: string) {
