@@ -24,13 +24,7 @@ export const SigninForm: FC = () => {
 		e.preventDefault();
 		authService.signin(credentials);
 		const user = userService.findOne(`${import.meta.env.VITE_APP_API_URL}/user/email/${credentials.email}`);
-		console.log(user);
-
-		// if (!user.shop) {
-        //     navigate(`/shop/create-shop/${user._id}`)
-		// } else {
-		// 	navigate('/dashboard');
-		// }
+		navigate('/dashboard');
 	};
 	return (
 		<form action="" className="flex flex-col items-center justify-around h-52" onSubmit={(e) => handleSubmit(e)}>

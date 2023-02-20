@@ -1,25 +1,31 @@
-import { FC, useEffect } from 'react';
+import { FC, useEffect, useState } from 'react';
 
 import { ShopAccordion } from '@/app/components/molecules/shopAccordion';
-import { ShopService } from '@/setup/services/shop.service';
-import { Shop } from '@/setup/types/shop.type';
 import useShop from '@/setup/contexts/shop.context';
+import TokenService from '@/setup/services/token.service';
+import jwtDecode from 'jwt-decode';
+import { UserService } from '@/setup/services/user.service';
 
 export const ShopList: FC = () => {
     const { data, setData } = useShop();
-	const shopService = new ShopService();
+	const [shop, setShop] = useState<any>({});
+	const [isLoading, setIsLoading] = useState(false);
+
+	const tokenService = new TokenService();
+	const userService = new UserService();
 	useEffect(() => {
 		const fetch = async () => {
-			const response = await shopService.findAll(`${import.meta.env.VITE_APP_API_URL}/shops`);
-			setData(response);
+			const token = tokenService.getLocalAccessToken();
+			const decodedToken = jwtDecode(String(token));
+			const nowUser = await userService.findOne(`${import.meta.env.VITE_APP_API_URL}/user/email/${decodedToken.email}`);
+			setShop(nowUser.shop);
+			setIsLoading(true);
 		};
 		fetch();
 	}, []);
 	return (
 		<>
-			{data.map((shop: Shop) => (
-				<ShopAccordion key={shop._id} name={shop.name} addresse={shop.addresse} posts={shop.posts} id={shop._id} />
-			))}
+		{isLoading ? <ShopAccordion name={shop.name} addresse={shop.addresse} posts={shop.posts} id={shop._id} /> : null}
 		</>
 	);
 };

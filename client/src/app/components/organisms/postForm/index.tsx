@@ -1,16 +1,19 @@
-import { ChangeEvent, FC, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { ChangeEvent, FC, FormEvent, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import { FormInput } from '@/app/components/atoms/input';
 import { FormInputLabel } from '@/app/components/molecules/formInputLabel';
 import { Button } from '@/app/components/atoms/button';
+import { PostService } from '@/setup/services/post.service';
+import { ShopService } from '@/setup/services/shop.service';
 
-interface IProps {
-	handleSubmit: (credentials: Object) => void;
-}
 
-export const PostForm: FC<IProps> = ({ handleSubmit }) => {
+export const PostForm: FC = () => {
     const params = useParams();
+	const navigate = useNavigate();
+
+	const postService = new PostService();
+	const shopService = new ShopService();
 
     const [credentials, setCredentials] = useState({
         available: false,
@@ -23,14 +26,17 @@ export const PostForm: FC<IProps> = ({ handleSubmit }) => {
         setCredentials({...credentials, [name]: value});
     };
 
+	const handleSubmit = async (e?: FormEvent<any>) => {
+		e?.preventDefault();
+        postService.createAndUpdate(`${import.meta.env.VITE_APP_API_URL}/shops/${params.id}`, `${import.meta.env.VITE_APP_API_URL}/posts`, credentials)
+        navigate('/dashboard');
+	};
+
 	return (
 		<form
 			action=""
 			className="flex flex-col items-center justify-around h-96 mt-16"
-			onSubmit={(e) => {
-				e.preventDefault();
-				handleSubmit(credentials);
-			}}
+			onSubmit={handleSubmit}
 		>
 			<FormInputLabel label={'Title'}>
 				<FormInput type={'text'} name={'title'} placeholder={'Title'} onChange={handleChange} />

@@ -2,17 +2,17 @@ import { createContext, Dispatch, PropsWithChildren, SetStateAction, useContext,
 import { Shop } from '@/setup/types/shop.type';
 
 type Context = {
-	data: Shop[];
-	setData: Dispatch<SetStateAction<Shop[]>>;
+	data: any;
+	setData: Dispatch<SetStateAction<any>>;
 };
 
 const shopContext = createContext<Context>({
-	data: [],
+	data: {},
 	setData: () => {},
 });
 
 export const ShopContextProvider = ({ children }: PropsWithChildren) => {
-	const [data, setData] = useState<Shop[]>([]);
+	const [data, setData] = useState<any>({});
 	return <shopContext.Provider value={{ data, setData }}>{children}</shopContext.Provider>;
 };
 
