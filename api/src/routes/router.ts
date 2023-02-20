@@ -35,7 +35,7 @@ router.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerDocument, options));
 router.get('/posts', postController.findAll);
 router.get('/posts/:id', postController.findOneById);
 router.post('/posts/', postController.createOne);
-router.patch('/posts/:id', validateUser, postController.updateOne);
+router.patch('/posts/:id', postController.updateOne);
 router.delete('/posts/:id', validateUser, postController.deleteOne);
 
 router.get('/comments', commentController.getAllComments);
@@ -52,15 +52,15 @@ router.delete('/bookings/:id', validateUser, bookingController.deleteBooking);
 
 router.get('/shops', shopController.findAllShops);
 router.get('/shops/:id', shopController. findOneShopById);
-router.post('/shops', validateUser, shopController.createShop);
-router.patch('/shops/:id', validateUser, shopController.updateShop);
+router.post('/shops', shopController.createShop);
+router.patch('/shops/:id', shopController.updateShop);
 router.delete('/shops/:id', validateUser, shopController.deleteShop);
 
 router.get('/users', userController.findAllUsers);
 router.get('/user/:id', userController.findOneUserById);
 router.get('/user/email/:email', userController.findOneUserByEmail);
 router.post('/user', userController.createUser);
-router.patch('/user/:id', validateUser, userController.updateUser);
+router.put('/user/:id', userController.updateUser);
 router.delete('/user/:id', validateUser, userController.deleteUser);
 
 router.post('/auth/signin', authController.signIn);
