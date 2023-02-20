@@ -6,11 +6,11 @@ import Comment from "../models/comment.model";
 export class CommentService {
     
     public async findAll () {
-        return await Comment.find();
+        return await Comment.find().populate(['post']);
     };
 
     public async findOne (_id: string) {
-        return await Comment.findOne({_id});
+        return await Comment.findOne({_id}).populate(['post']);
     };
 
     public async createOne (req: Request) {
