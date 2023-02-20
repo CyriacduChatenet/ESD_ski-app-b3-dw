@@ -2,7 +2,7 @@ import jwtDecode from 'jwt-decode';
 
 class TokenService {
     getLocalAccessToken = () => {
-        const accessToken = localStorage.getItem('accessToken');
+        const accessToken = localStorage.getItem('acessToken');
         return accessToken;
     }
     
@@ -30,7 +30,7 @@ class TokenService {
     }
     
     removeAccessToken = () => {
-        return localStorage.removeItem('accessToken');
+        return localStorage.removeItem('acessToken');
     }
 }
 
