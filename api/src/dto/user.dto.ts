@@ -5,5 +5,6 @@ export const UserDTO = (req: Request) => {
         username: req.body.username,
         email: req.body.email,
         password: req.body.password,
+        shop: req.body.shop,
     }
 }

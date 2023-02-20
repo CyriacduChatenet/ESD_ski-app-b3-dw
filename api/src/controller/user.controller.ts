@@ -16,7 +16,6 @@ class UserController {
     const shop = await userService.findOneById(req.params.id);
     return res.status(200).json(shop);
   };
-
   public async findOneUserByEmail(req: Request, res: Response) {
     const shop = await userService.findOneByEmail(req.params.email);
     return res.status(200).json(shop);

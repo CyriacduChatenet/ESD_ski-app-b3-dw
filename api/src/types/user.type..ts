@@ -5,6 +5,6 @@ export type IUser = {
     username: string;
     email: string;
     password: string;
-    resetTokenPassword: IResetTokenPassword[];
-    shop?: IShop
+    resetTokenPassword?: IResetTokenPassword;
+    shop?: IShop[];
 }
