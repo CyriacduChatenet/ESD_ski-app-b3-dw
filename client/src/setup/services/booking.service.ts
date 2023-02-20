@@ -19,7 +19,7 @@ export class BookingService implements Booking {
 	}
 
 	async updateOne(url: string, credentials: Object) {
-		return await this.useFetch.patch(url, credentials, String(localStorage.getItem('acessToken')));
+		return await this.useFetch.patch(url, credentials);
 	}
 
 	async createAndUpdate(booking_url: string, post_url: string, credentials: Object) {
