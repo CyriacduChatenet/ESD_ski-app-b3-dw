@@ -7,6 +7,7 @@ import { SigninPage } from '@/app/pages/auth/signin';
 import { SignupPage } from '@/app/pages/auth/signup';
 import { HomePage } from '@/app/pages/home';
 import { PostPage } from '@/app/pages/post';
+import { CreateShopPage } from '@/app/pages/createShop';
 
 export const PublicRouter: FC = () => {
 	return (
@@ -17,6 +18,7 @@ export const PublicRouter: FC = () => {
 			<Route path={'/forgot-password'} element={<ForgotPasswordPage />} />
 			<Route path={'/reset-password/:resetToken'} element={<ResetPasswordPage />} />
 			<Route path={'/post/:id'} element={<PostPage />} />
+			<Route path="/shop/create-shop/:id" element={<CreateShopPage />} />
 		</Routes>
 	);
 };
