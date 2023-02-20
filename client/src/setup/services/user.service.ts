@@ -7,8 +7,8 @@ export class UserService {
         return this.useFetch.get(url);
     };
 
-    findOne = async (url: string) => {
-        return await this.useFetch.get(`${url}`);
+    findOne = (url: string) => {
+        return this.useFetch.get(`${url}`);
     };
 
     updateOne(url: string, credentials: Object) {

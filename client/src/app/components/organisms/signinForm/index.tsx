@@ -23,14 +23,14 @@ export const SigninForm: FC = () => {
 	const handleSubmit = (e: FormEvent) => {
 		e.preventDefault();
 		authService.signin(credentials);
-		const user = userService.findOne(`${import.meta.env.VITE_APP_API_URL}/user/email/${credentials.email}`) satisfies any;
+		const user = userService.findOne(`${import.meta.env.VITE_APP_API_URL}/user/email/${credentials.email}`);
 		console.log(user);
 
-		if (!user.shop) {
-            navigate('/shop/create-shop')
-		} else {
-			navigate('/dashboard');
-		}
+		// if (!user.shop) {
+        //     navigate(`/shop/create-shop/${user._id}`)
+		// } else {
+		// 	navigate('/dashboard');
+		// }
 	};
 	return (
 		<form action="" className="flex flex-col items-center justify-around h-52" onSubmit={(e) => handleSubmit(e)}>
