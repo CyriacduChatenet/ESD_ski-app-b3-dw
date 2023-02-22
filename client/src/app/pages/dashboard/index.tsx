@@ -8,6 +8,7 @@ import TokenService from '@/setup/services/token.service';
 export const DashboardPage: FC = () => {
 	const tokenService = new TokenService();
 	const navigate = useNavigate();
+	
 	return (
 		<div className="w-full px-20 py-4">
 			<div className="w-full flex justify-between mb-12 mt-4">
