@@ -11,7 +11,20 @@ export class useFetch {
         return responseJSON;
     };
 
-    post = async (url: string, credentials: any, token? : string) => {
+    post = async (url: string, credentials: Object) => {
+        const response = await fetch(url, {
+            headers: {
+                'Accept': 'application/json',
+                'Content-type': 'application/json; charset=UTF-8'
+            },
+            method: 'POST',
+            body: JSON.stringify(credentials)
+        });
+        const responseJSON = await response.json();
+        return responseJSON;
+    };
+
+    postProtected = async (url: string, credentials: Object, token : string) => {
         const response = await fetch(url, {
             headers: {
                 'Accept': 'application/json',
@@ -38,13 +51,14 @@ export class useFetch {
         return responseJSON;
     };
 
-    put = async (url: string, credentials: Object) => {
+    patchProtected = async (url: string, credentials: Object, token : string) => {
         const response = await fetch(url, {
             headers: {
                 'Accept': 'application/json',
                 'Content-type': 'application/json; charset=UTF-8',
+                'Authorization': 'Bearer ' + token,
             },
-            method: 'PUT',
+            method: 'PATCH',
             body: JSON.stringify(credentials)
         });
         const responseJSON = await response.json();
