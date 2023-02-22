@@ -14,11 +14,11 @@ export class ShopService {
     };
 
     create(url: string, credentials: Object) {
-        return this.useFetch.post(url, credentials, String(localStorage.getItem('acessToken')));
+        return this.useFetch.postProtected(url, credentials, String(localStorage.getItem('acessToken')));
     };
 
     updateOne(url: string, credentials: Object) {
-        return this.useFetch.patch(url, credentials);
+        return this.useFetch.patchProtected(url, credentials, String(localStorage.getItem('acessToken')));
     };
 
     deleteOne(url: string, id: string) {

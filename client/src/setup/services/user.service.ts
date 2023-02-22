@@ -12,7 +12,7 @@ export class UserService {
     };
 
     updateOne(url: string, credentials: Object) {
-        return this.useFetch.put(url, credentials);
+        return this.useFetch.patchProtected(url, credentials, String(localStorage.getItem('acessToken')));
     };
 
     deleteOne(url: string, id: string) {

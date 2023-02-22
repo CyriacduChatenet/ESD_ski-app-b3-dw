@@ -20,7 +20,7 @@ export class CommentService {
     };
 
     updateOne(url: string, credentials: Object) {
-        return this.useFetch.patch(url, credentials);
+        return this.useFetch.patchProtected(url, credentials, String(localStorage.getItem('acessToken')));
     };
 
     deleteOne(url: string, id: string) {

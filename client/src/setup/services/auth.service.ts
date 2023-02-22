@@ -22,6 +22,7 @@ class AuthService {
 		    body: JSON.stringify(credentials)
 		});
 		const responseJSON = await response.json();
+		localStorage.setItem('acessToken', responseJSON.acessToken);
 		return responseJSON;
 	}
 
@@ -39,7 +40,7 @@ class AuthService {
 
 	async resetPassword(credentials: any, resetToken: string) {
 		const tokenInDB = await this.useFetch.get(`${import.meta.env.VITE_APP_API_URL}/auth/reset-token-password/${resetToken}`)
-		this.useFetch.put(`${import.meta.env.VITE_APP_API_URL}/user/${tokenInDB.user._id}`, credentials)
+		this.useFetch.patchProtected(`${import.meta.env.VITE_APP_API_URL}/user/${tokenInDB.user._id}`, credentials, String(localStorage.getItem('acessToken')))
 	}
 }
 

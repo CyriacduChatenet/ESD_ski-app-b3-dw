@@ -14,7 +14,7 @@ export class PostService {
     };
 
     create(url: string, credentials: Object) {
-        return this.useFetch.post(url, credentials, String(localStorage.getItem('acessToken')));
+        return this.useFetch.postProtected(url, credentials, String(localStorage.getItem('acessToken')));
     };
 
     updateOne(url: string, credentials: Object) {
