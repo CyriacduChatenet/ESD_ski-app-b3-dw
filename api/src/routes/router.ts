@@ -52,15 +52,15 @@ router.delete('/bookings/:id', validateUser, bookingController.deleteBooking);
 
 router.get('/shops', shopController.findAllShops);
 router.get('/shops/:id', shopController. findOneShopById);
-router.post('/shops', shopController.createShop);
-router.patch('/shops/:id', shopController.updateShop);
+router.post('/shops',validateUser, shopController.createShop);
+router.patch('/shops/:id',validateUser, shopController.updateShop);
 router.delete('/shops/:id', validateUser, shopController.deleteShop);
 
 router.get('/users', userController.findAllUsers);
 router.get('/user/:id', userController.findOneUserById);
 router.get('/user/email/:email', userController.findOneUserByEmail);
 router.post('/user', userController.createUser);
-router.put('/user/:id', userController.updateUser);
+router.patch('/user/:id',validateUser, userController.updateUser);
 router.delete('/user/:id', validateUser, userController.deleteUser);
 
 router.post('/auth/signin', authController.signIn);

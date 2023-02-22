@@ -31,8 +31,9 @@ class AuthController {
 
 		try {
 			const user = await userService.createOne(newUser);
-			res.status(201).json({ user });
-			return mailController.sendWelcomeMail(req.body.email);
+			const token = this.generateAccessToken(newUser.email, newUser.password);
+			mailController.sendWelcomeMail(req.body.email);
+			return res.status(201).json({acessToken: token, user });
 		} catch (err: any) {
 			return res.status(401).json('Unauthorize');
 		}
